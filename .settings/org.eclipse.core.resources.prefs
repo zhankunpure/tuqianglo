@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//src/data/accountcenter=UTF-8
+encoding//src/data/comdata/sqlDate/SqlData.java=UTF-8
+encoding//src/data/login/login_with_sales_and_agent_user.csv=UTF-8
+encoding//src/data/statisticalReport=UTF-8
+encoding//src/model/CsvReader.java=UTF-8
+encoding//src/pages/accountcenterPage/AccountCenterFictitiousAccountManagerPage.java=UTF-8
+encoding//src/pages/accountcenterPage/AccountCenterMsgCenterPage.java=UTF-8
+encoding//src/pages/statisticalReportPage=UTF-8
+encoding//src/pages/statisticalReportPage/StatisticalReportPage.java=UTF-8
+encoding//src/testcases/AccountCenter/TestCase2002AccountCenterMsgSetRead.java=UTF-8
+encoding//src/testcases/AccountCenter/TestCase2004FictiousAccountVerify.java=UTF-8
+encoding//src/testcases/AccountCenter/TestCase2005AddFictiousAccount.java=UTF-8
+encoding//src/testcases/AccountCenter/TestCase2006EditFictionsAccount.java=UTF-8
+encoding//src/testcases/login_normal/Testcase1002_Login_Page_Language_Asser.java=UTF-8
+encoding/<project>=UTF-8
