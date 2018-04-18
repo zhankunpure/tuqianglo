@@ -42,6 +42,10 @@ public class StatisticalReportPage extends AutomateDriver {
 	 * 打卡统计
 	 */
 	public static final String punchTheClockStatistics = "punchTheClockStatistics";
+	/**
+	 * 暂无数据
+	 */
+	public static final String no_records_found = "x,//*[@id=\"table\"]/tbody/tr/td";
 	
 	//======================================================================================================================
 	
@@ -1019,6 +1023,11 @@ public class StatisticalReportPage extends AutomateDriver {
 	public StatisticalReportPage(WebDriver dr) {
 		super(dr);
 		
+	}
+	
+	public void clickStatisticalReportSubmenu(String selector) {
+		
+		super.clickElement(selector);
 	}
 
 	/**

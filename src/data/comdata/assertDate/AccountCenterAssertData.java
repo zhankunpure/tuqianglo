@@ -11,5 +11,8 @@ public class AccountCenterAssertData {
 		return text;
 	}
 	
-
+	public String monitoringUserUrl() {
+		String text = "http://tujunsat.jimicloud.com/index";
+		return text;
+	}
 }

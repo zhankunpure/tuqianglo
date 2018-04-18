@@ -23,30 +23,40 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 * 包含下级用户设备
 	 * 
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void selectLowerFlag() {
-		//
-		super.clickElement("x,/ html/body/div/div[1]/label/div/ins");
+	public void selectLowerFlag(String selector) throws InterruptedException {
+		Thread.sleep(2000);
+		super.clickElement(selector);
+		
+		Thread.sleep(2000);
 	}
+	
 
 	/**
 	 * 点击刷新按钮
 	 * 
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void refreshFrame() {
+	public void refreshFrame(String selector) throws InterruptedException {
 		
-		super.clickElement("x,//*[@id=\"stockStatDiv\"]/div/div/div[1]/span/i[1]");
+		super.clickElement(selector);
+		
+		Thread.sleep(2000);
 	}
 
 	/**
 	 * 删除模块
 	 * 
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void deleteModula() {
+	public void deleteModula(String selector) throws InterruptedException {
+		//"x,// *[@id=\"stockStatDiv\"]/div/div/div[1]/span/i[2]"
+		super.clickElement(selector);
 		
-		super.clickElement("x,// *[@id=\"stockStatDiv\"]/div/div/div[1]/span/i[2]");
+		Thread.sleep(2000);
 	}
 
 	/**
@@ -56,7 +66,7 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 */
 	public void clickAddModula() {
 	//	/html/body/div[9]/div[3]/div/a
-		super.clickElement("x,/html/body/div[9]/div[3]/div/a");
+		super.clickElement("p,添加模块 ");
 	}
 
 	/**
@@ -67,98 +77,137 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 */
 	public void AddModula() throws InterruptedException {
 		// /html/body/div[9]/div[1]/div/a
-		super.clickElement("x,/html/body/div[9]/div[3]/div/a");
+		super.clickElement("p,添加模块 ");
 		
-		List<WebElement> elements = super.getElements("x,/html/body/div[2]/div/div/div");
+		List<WebElement> elements = super.getElements("x,/html/body/div[13]/div[2]/div/div/div");
 		int size = elements.size();
 		System.out.println(elements);
-		
-		for (int i = 0; i < size; i++) {
-			
-		if (!super.getElement("stockStat").isSelected()) {
-			super.clickElement("stockStat");
-			Thread.sleep(2000);
-		} else if(!super.getElement("statusStat").isSelected()) {
-			super.clickElement("statusStat");
-			Thread.sleep(2000);
-		} else if(!super.getElement("actStat").isSelected()) {
-			super.clickElement("actStat");
-			Thread.sleep(2000);
-		} else if(!super.getElement("alarmStat").isSelected()) {
-			super.clickElement("alarmStat");
-			Thread.sleep(2000);
-		} else if(!super.getElement("batchEdit").isSelected()) {
-			super.clickElement("batchEdit");
-			Thread.sleep(2000);
-		} else if(!super.getElement("monitUser").isSelected()) {
-			super.clickElement("monitUser");
-			Thread.sleep(2000);
-		} else if(!super.getElement("tracking").isSelected()) {
-			super.clickElement("tracking");
-			Thread.sleep(2000);
-		} else if(!super.getElement("devExpires").isSelected()) {
-			super.clickElement("devExpires");
-			Thread.sleep(2000);
-		} else if(!super.getElement("actDevReport").isSelected()) {
-			super.clickElement("actDevReport");
-			Thread.sleep(2000);
-		}  else if(!super.getElement("fastSell").isSelected()) {
-			super.clickElement("fastSell");
-			Thread.sleep(2000);
-		}  else if(!super.getElement("devIns").isSelected()) {
-			super.clickElement("devIns");
-		}  
-			
-			
-		}	
-			
-			
+		System.out.println(size);
 		
 //		for (WebElement element : elements) {
 //			if (element.isSelected()) {
+//				System.out.println(element);
 //				continue;
 //			} else {
 //				element.click();
+//				System.out.println(element);
 //				Thread.sleep(2000);
 //			}
 //		}
+		
+			if (!super.getElement("stockStat").isSelected()) {
+				
+				super.clickElement("stockStat");
+				String id = super.getElement("stockStat").getAttribute("id");
+				System.out.println("id="+id);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("statusStat").isSelected()) {
+				super.clickElement("statusStat");
+				String id1 = super.getElement("statusStat").getAttribute("id");
+				System.out.println("id="+id1);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("actStat").isSelected()) {
+				super.clickElement("actStat");
+				String id2 = super.getElement("actStat").getAttribute("id");
+				System.out.println("id="+id2);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("alarmStat").isSelected()) {
+				super.clickElement("alarmStat");
+				String id3 = super.getElement("alarmStat").getAttribute("id");
+				System.out.println("id="+id3);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("batchEdit").isSelected()) {
+				super.clickElement("batchEdit");
+				String id4 = super.getElement("batchEdit").getAttribute("id");
+				System.out.println("id="+id4);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("monitUser").isSelected()) {
+				super.clickElement("monitUser");
+				String id5 = super.getElement("monitUser").getAttribute("id");
+				System.out.println("id="+id5);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("tracking").isSelected()) {
+				super.clickElement("tracking");
+				String id6 = super.getElement("tracking").getAttribute("id");
+				System.out.println("id="+id6);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("devExpires").isSelected()) {
+				super.clickElement("devExpires");
+				String id7 = super.getElement("devExpires").getAttribute("id");
+				System.out.println("id="+id7);	
+			}
+
+			Thread.sleep(2000);
+			if (!super.getElement("actDevReport").isSelected()) {
+				super.clickElement("actDevReport");
+				String id8 = super.getElement("actDevReport").getAttribute("id");
+				System.out.println("id="+id8);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("fastSell").isSelected()) {
+				super.clickElement("fastSell");
+				String id9 = super.getElement("fastSell").getAttribute("id");
+				System.out.println("id="+id9);
+			}
+			Thread.sleep(2000);
+			if (!super.getElement("devIns").isSelected()) {
+			    super.clickElement("devIns");
+			    String id10 = super.getElement("devIns").getAttribute("id");
+				System.out.println("id="+id10);
+			}
+			Thread.sleep(2000);
+			
 		super.clickElement("p,确定");
+		super.waitForElementToLoad(10, "stockStatFrame");
 		// super.clickElement("p,取消");
 	}
 
 	/**
 	 * 下载模板
+	 * @throws InterruptedException 
 	 */
 
-	public void downloadModula() {
+	public void downloadModula() throws InterruptedException {
 		
-		super.switch_to_frame("batchEditFrame");
+		//super.switch_to_frame("batchEditFrame");
 
 		super.clickElement("p,点我下载文件");
-		
-		super.switch_to_frame("");
+		Thread.sleep(5000);
+		//super.switch_to_frame("");
 	}
 
 	/**
 	 * 监控用户搜素
+	 * @throws InterruptedException 
 	 */
-	public void treeSubUserSearch(String value) {
-		// value:test1101
-		super.switch_to_frame("monitUserFrame");
+	public void treeSubUserSearch(String value) throws InterruptedException {
+		// value:test1101  account_4
+//		super.switch_to_frame("monitUserFrame");
 		
 		super.operateInputElement("x,//*[@id=\"treeSubUser_search_input\"]", value);
-
+		Thread.sleep(2000);
 		super.clickElement("x,//*[@id=\"treeSubUser_search_btn\"]");
-
+		Thread.sleep(2000);
 		super.clickElement("x,/html/body/div/div[1]/div/div/div[1]/div");
+		Thread.sleep(2000);
 	}
 
 	/**
 	 * 点击监控用户按钮
+	 * @throws InterruptedException 
 	 */
-	public void monitoringUsers() {
-
+	public void clickMonitoringUsersBtn() throws InterruptedException {
+		
 		super.clickElement("x,/html/body/div/div[2]/div/div[6]/button");
+		
+		Thread.sleep(2000);
 	}
 
 	/**
@@ -273,9 +322,9 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 * @throws InterruptedException
 	 */
 	public void trajectoryPlaybackSearch() throws InterruptedException {
-
-		// super.operateInputElement("x,//*[@id=\"searchImeiText\"]", imei);
-
+		//点击轨迹回放
+		super.clickElement("x,//*[@id=\"locus\"]");
+		Thread.sleep(2000);
 		super.clickElement("x,//*[@id=\"selectLocus\"]");
 		Thread.sleep(2000);
 		// 上周
@@ -344,8 +393,9 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 
 		Thread.sleep(5000);
 
-		super.dr.navigate().back();
-
+		super.close();
+		
+		Thread.sleep(2000);
 	}
 
 	/**
@@ -486,5 +536,7 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 		super.clickElement("x,//*[@id=\"sendInsBtn\"]");
 		
 		super.dr.navigate().refresh();
+		
+		super.switch_to_frame("");
 	}
 }
