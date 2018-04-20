@@ -11,7 +11,7 @@ import java.net.InetAddress;
 
 public class EsQuery {
 	static Log log=LogFactory.getLog(EsQuery.class);
-	static public TransportClient tclient=null;
+	public static  TransportClient tclient=null;
 	static BulkProcessor staticBulkProcessor=null;
 	public static TransportClient getClient(){
 		try{

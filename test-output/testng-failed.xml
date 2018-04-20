@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.AccountCenter.Testcase2015ExpressLanePageSmallFunctions">
+      <class name="testcases.statisticalReport.TestCase5008AlarmOverviewQuery">
         <methods>
-          <include name="afterTest"/>
-          <include name="expressLanePageSmallFunctions"/>
           <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="alarmOverviewQuery"/>
         </methods>
-      </class> <!-- testcases.AccountCenter.Testcase2015ExpressLanePageSmallFunctions -->
+      </class> <!-- testcases.statisticalReport.TestCase5008AlarmOverviewQuery -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

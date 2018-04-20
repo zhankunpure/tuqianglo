@@ -226,72 +226,81 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
      * @throws InterruptedException 
      */
     public void click_account_center() throws InterruptedException {
-    	
+    	super.waitForElementToLoad(10, "accountCenter");
     	super.clickElement("x,//*[@id=\"accountCenter\"]");
     	
     }
     
     //点击设备管理
     public void click_DeviceManage() {
-    	
+    	super.waitForElementToLoad(10, "device");
     	super.clickElement("x,//*[@id='device']");
     }
     
     //点击客户管理
-    public void click_CustomerManage() {
-    	
+    public void click_CustomerManage() throws InterruptedException {
+    	super.waitForElementToLoad(10, "customer");
     	super.clickElement("x,//*[@id='customer']");
+    	Thread.sleep(2000);
     }
     
     //点击统计报表
-    public void click_StatisticalReport() {
+    public void click_StatisticalReport() throws InterruptedException {
+    	super.waitForElementToLoad(10, "reportsManagement");
+    	super.clickElement("reportsManagement");
     	
-    	super.clickElement("x,//*[@id='reportsManagement']");
+    	Thread.sleep(5000);
+    	
     }
     
     //点击安全区域
-    public void click_SafeArea() {
-    	
+    public void click_SafeArea() throws InterruptedException {
+    	super.waitForElementToLoad(10, "geozone");
     	super.clickElement("x,//*[@id='geozone']");
+    	Thread.sleep(2000);
     }
     
     //点击设备分布
-    public void click_DeviceDistribution() {
-    	
+    public void click_DeviceDistribution() throws InterruptedException {
+    	super.waitForElementToLoad(10, "deviceDistribution");
     	super.clickElement("x,//*[@id='deviceDistribution']");
+    	Thread.sleep(2000);
     }
     
     //点击全局搜索
-    public void click_GlobalSearch() {
-    	
+    public void click_GlobalSearch() throws InterruptedException {
+    	super.waitForElementToLoad(10, "globalSearch");
     	super.clickElement("x,//*[@id='globalSearch']");
+    	Thread.sleep(2000);
     }
     
     //点击订单管理
-    public void clickOrderManager() {
-    	
+    public void clickOrderManager() throws InterruptedException {
+    	super.waitForElementToLoad(10, "ordermanagerBtn");
     	super.clickElement("ordermanagerBtn");
+    	Thread.sleep(2000);
     }
     
     //点击账单管理
-    public void clickBillManager() {
-    	
+    public void clickBillManager() throws InterruptedException {
+    	super.waitForElementToLoad(10, "billmanagerBtn");
     	super.clickElement("billmanagerBtn");
+    	Thread.sleep(2000);
     }
     
    //点击购买充值卡
     public void clickBuyCard() {
-    	
+    	super.waitForElementToLoad(10, "buycardbtn");
     	super.clickElement("buycardbtn");
     }
    //点击设备充值
     public void clickRecharge() {
-    	
+    	super.waitForElementToLoad(10, "rechargebtn");
     	super.clickElement("rechargebtn");
     }
    //点击充值卡管理
     public void clickRechargeManager() {
-    	
+    	super.waitForElementToLoad(10, "rechargemanagerbtn");
     	super.clickElement("rechargemanagerbtn");
     }
     

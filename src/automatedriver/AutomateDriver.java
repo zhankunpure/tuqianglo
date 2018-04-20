@@ -210,16 +210,16 @@ public class AutomateDriver {
 	 * @throws InterruptedException 
 	 */
 	public void switchToWindow(String handle) throws InterruptedException {
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		Set<String> handles = new HashSet<String>();
 		handles = dr.getWindowHandles();
 		for (String handle1 :handles){
 			if(handle1 != handle){
-				dr.close();
+				
 //				Thread.sleep(1000);
 				dr.switchTo().window(handle1);
 			}else {
-				
+				dr.close();
 			}
 		}
 		

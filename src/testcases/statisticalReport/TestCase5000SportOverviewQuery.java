@@ -6,8 +6,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import model.ClientRedis;
 import pages.accountcenterPage.AccountCenterNaviBarPage;
 import pages.base.BasePage;
+import pages.statisticalReportPage.SportOverviewPage;
 import pages.statisticalReportPage.StatisticalReportPage;
 
 public class TestCase5000SportOverviewQuery {
@@ -18,12 +20,18 @@ public class TestCase5000SportOverviewQuery {
 	private StatisticalReportPage srPage;
 	
 	private AccountCenterNaviBarPage nbPage;
+	
+	private SportOverviewPage soPage;
+	
+	private ClientRedis cr;
   
   @BeforeTest
   public void beforeTest() {
 	  dr = new FirefoxDriver();
 	  
 	  page = new BasePage(dr);
+	  
+	  soPage = new SportOverviewPage(dr);
 	  
 	  srPage = new StatisticalReportPage(dr);
 	  
@@ -37,23 +45,28 @@ public class TestCase5000SportOverviewQuery {
   public void sportOverviewQuery() throws InterruptedException {
 	  page.login();
 	  //点击统计报表
+	  String currentHandle = soPage.getCurrentWindowHandle();
 	  nbPage.click_StatisticalReport();
+	  
+	  soPage.switchToWindow(currentHandle);
 	  //点击运动统计
 	  if (!srPage.getElement("x,//*[@id=\"motionstatistics\"]/ul").isDisplayed()) {
 		srPage.clickElement(StatisticalReportPage.motionstatistics);
 	}
 	  //点击运动总览
-	  srPage.clickStatisticalReportSubmenu(StatisticalReportPage.sportOverview);
+	  srPage.clickStatisticalReportSubmenu(soPage.sportOverview);
 	  //进入运动总览iframe
-	  srPage.intoFrame(StatisticalReportPage.sportOverviewFrame);
+	  srPage.intoFrame(soPage.sportOverviewFrame);
 	  //运动总览报表查询
-	  srPage.sportOverviewSelect("web_autotest");
+	  soPage.sportOverviewSelect("web_autotest");
 	  
-	  String AllMileage = srPage.getAllMileage(StatisticalReportPage.sportOverviewAllMileage);
+	  String AllMileage = srPage.getAllMileage(soPage.sportOverviewAllMileage);
 	  
-	  String AlloverSpeedTimes = srPage.getSpoerOverviewAlloverSpeedTimes();
+	  String AlloverSpeedTimes = soPage.getSpoerOverviewAlloverSpeedTimes();
 	  
-	  String AllstopTimes = srPage.getSpoerOverviewAllstopTimes();
+	  String AllstopTimes = soPage.getSpoerOverviewAllstopTimes();
+	  
+	  cr = new ClientRedis();
 	  
 	
   }
