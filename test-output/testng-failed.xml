@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.AccountCenter.TestCase2016ExpressLanePageMonitoringUserAndEditorUser">
+      <class name="testcases.AccountCenter.TestCase2001AccountCenterMsgUnread">
         <methods>
-          <include name="MonitoringUserAndEditorUser"/>
-          <include name="beforeTest"/>
-          <include name="afterTest"/>
+          <include name="tearDown"/>
+          <include name="test_account_center_msg_unread"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- testcases.AccountCenter.TestCase2016ExpressLanePageMonitoringUserAndEditorUser -->
+      </class> <!-- testcases.AccountCenter.TestCase2001AccountCenterMsgUnread -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

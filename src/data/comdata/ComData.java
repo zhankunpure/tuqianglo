@@ -12,7 +12,7 @@ public class ComData {
 	
 	public String BaseCSV_Path() {
 		
-		String csv_path = "E:\\workspace\\tuqiangol_test-master\\src\\data\\";
+		String csv_path = "E:\\workspace\\tuqiangolAuto\\tuqiangolAuto\\src\\data\\";
 		
 		return csv_path;
 		

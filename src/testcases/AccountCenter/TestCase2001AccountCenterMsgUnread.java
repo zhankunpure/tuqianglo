@@ -35,12 +35,12 @@ public class TestCase2001AccountCenterMsgUnread {
 		ComAssertData assertd=new ComAssertData();
 		ConnectMysql conn=new ConnectMysql();
 		SqlData sqld=new SqlData();
-		CsvReader csvr=new CsvReader("account_center","message_search_unread.csv");
+		CsvReader csvr=new CsvReader("accountcenter","message_search_unread.csv");
 		List<List<String>> csv_data=csvr.readCSVFile();
 		AccountCenterMsgCenterPage acmcp=new AccountCenterMsgCenterPage(dr);
 		basep.login();
 		acmcp.enterMsgCenter();
-		Assert.assertEquals(acmcp.mess_center_title(), assertd.account_center_msg_center_title()[0], "消息中心title错误");
+		Assert.assertEquals(acmcp.mess_center_title(), assertd.account_center_msg_center_title()[0], "");
 		acmcp.msgCenterParamInput(csv_data.get(0).get(0), csv_data.get(0).get(1), csv_data.get(0).get(2));
 		int actual_message_unread_num=acmcp.messageNumber();
 		List<String> fullParentIdAnduserId=new ArrayList<String>();
@@ -52,8 +52,8 @@ public class TestCase2001AccountCenterMsgUnread {
 		int except_message_unread_num=Integer.parseInt(account_center_msg_unread_number.get(0));
 		
 		int actual_show_unread_num=acmcp.unreadMessNumber();
-		Assert.assertEquals(actual_show_unread_num, except_message_unread_num,"未读消息数量不对");
-		Assert.assertEquals(actual_message_unread_num, except_message_unread_num,"未读消息数量不对");
+		Assert.assertEquals(actual_show_unread_num, except_message_unread_num,"");
+		Assert.assertEquals(actual_message_unread_num, except_message_unread_num,"");
 	}
 
 }
