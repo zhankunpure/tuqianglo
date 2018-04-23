@@ -25,25 +25,38 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 * @param selector
 	 * @throws InterruptedException 
 	 */
-	public void selectLowerFlag(String selector) throws InterruptedException {
+	public void clickLowerFlag(String selector) throws InterruptedException {
 		Thread.sleep(2000);
-		super.clickElement(selector);
+		if (!super.checkboxIsSelector(selector)) {
+			super.clickElement(selector);
+		}
 		
 		Thread.sleep(2000);
 	}
 	
-
+	public void inOrOutFrame(String selector) throws InterruptedException{
+		
+		super.switch_to_frame(selector);
+		
+		Thread.sleep(2000);
+		
+		
+	}
+	
+	
 	/**
 	 * 点击刷新按钮
 	 * 
 	 * @param selector
 	 * @throws InterruptedException 
 	 */
-	public void refreshFrame(String selector) throws InterruptedException {
+	public void refreshFrame(String divId) throws InterruptedException {
+		
+		String selector = "x,//*[@id=\""+divId+"\"]/div/div/div[1]/span/i[1]";
 		
 		super.clickElement(selector);
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 
 	/**
@@ -52,8 +65,9 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 * @param selector
 	 * @throws InterruptedException 
 	 */
-	public void deleteModula(String selector) throws InterruptedException {
-		//"x,// *[@id=\"stockStatDiv\"]/div/div/div[1]/span/i[2]"
+	public void deleteModula(String divId) throws InterruptedException {
+		
+		String selector = "x,//*[@id=\""+divId+"\"]/div/div/div[1]/span/i[2]";
 		super.clickElement(selector);
 		
 		Thread.sleep(2000);
@@ -218,6 +232,7 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	public void editorUser() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"editUser\"]/button");
+		Thread.sleep(5000);
 		// 切入编辑用户表单
 		super.switch_to_frame("x,/html/body/div[15]/div[2]/iframe");
 		Thread.sleep(2000);

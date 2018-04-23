@@ -13,10 +13,12 @@ import automatedriver.AutomateDriver;
  *
  */
 public class TracelReportPage extends AutomateDriver{
+	
+	public StatisticalReportPage srPage;
 
 	public TracelReportPage(WebDriver dr) {
 		super(dr);
-		
+		srPage = new StatisticalReportPage(dr);
 	}
 	
 	/**
@@ -26,7 +28,7 @@ public class TracelReportPage extends AutomateDriver{
 	/**
 	 * 行程报表表单 iframe //*[@id="tracelReportFrame"]
 	 */
-	public static final String tracelReportFrame = "//*[@id=\"tracelReportFrame\"]";
+	public static final String tracelReportFrame = "tracelReportFrame";
 	/**
 	 * 行程报表下拉菜单 /html/body/div[1]/div[2]/div[3]/div/div[1]/div[1]/div[2]/div/button
 	 */
@@ -143,5 +145,33 @@ public class TracelReportPage extends AutomateDriver{
 		}
 		
 	}
+	
+	/**
+	 * 获取总用时
+	 */
+	public String getAllMileagesHours(String selector) {
 
+		return super.getText(selector);
+	}	
+	
+
+	/**
+	 * 获取总里程
+	 * @return
+	 */
+	public String getAllMileage(String selector) {
+
+		String AllMileage = super.getText(selector).trim();
+
+		return AllMileage;
+	}
+	/**
+	 * 获取总油耗
+	 */
+	
+	public String getAllfuel(String selector){
+		
+		return super.getText(selector);
+	}
 }
+

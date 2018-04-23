@@ -1,6 +1,9 @@
 package pages.statisticalReportPage;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import automatedriver.AutomateDriver;
 
@@ -10,10 +13,12 @@ import automatedriver.AutomateDriver;
  *
  */
 public class MileageReportPage extends AutomateDriver{
+	
+	public StatisticalReportPage srPage;
 
 	public MileageReportPage(WebDriver dr) {
 		super(dr);
-		
+		srPage = new StatisticalReportPage(dr);
 	}
 	
 	/**
@@ -23,7 +28,7 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表表单 iframe //*[@id="mileageReportFrame"]
 	 */
-	public static final String mileageReportFrame = "//*[@id=\"mileageReportFrame\"]";
+	public static final String mileageReportFrame = "mileageReportFrame";
 	/**
 	 * 里程报表下拉菜单 
 	 * /html/body/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[2]/div/button
@@ -31,7 +36,11 @@ public class MileageReportPage extends AutomateDriver{
 	 */
 	public static final String mileageReportDropdownToggle = "x,/html/body/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[2]/div/button";
 	
+	public static final String mileageReportDropdownToggleLi = "x,/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div/ul/li";
+	
 	public static final String mileageReportDefaltDateSelect = "x,//*[@id=\"dateSelect_div\"]/div/span[2]";
+	
+	public static final String mileageReportDefaltDateSelectLi = "x,//*[@id=\"dateSelect_div\"]/div/div/ul/li[2]";
 	
 	public static final String mileageReportTodayDateSelect = "x,//*[@id=\"dateSelect_div\"]/div/div/ul/li[2]";
 	
@@ -246,6 +255,85 @@ public class MileageReportPage extends AutomateDriver{
 		super.clickElement(mileageReportSearchBtn);
 		
 	}
+	
+	/**
+	 * 按里程统计方式来查询记录
+	 * @throws InterruptedException 
+	 */
+	public void mileageReportMileagesCheak() throws InterruptedException {
+		
+		super.clickElement(mileageReportImeiSearchBtn);
+		Thread.sleep(2000);
+		super.clickElement(mileageReportSearchImeiAllSelect);
+		Thread.sleep(2000);
+		super.clickElement(mileageReportSearchEnsure);
+		
+		Thread.sleep(2000);
+		super.clickElement(mileageReportDefaltDateSelect);
+		Thread.sleep(2000);
+		List<WebElement> dateLis = super.getElements(mileageReportDefaltDateSelectLi);
+		
+		
+		int size = dateLis.size();
+		for (int i =0;i<size;i++) {
+			if (i ==0) {
+				continue;
+			} else {
+				WebElement dateLi = dateLis.get(i);
+				Thread.sleep(2000);
+				dateLi.click();
+				
+				super.clickElement(mileageReportSearchBtn);
+				Thread.sleep(2000);
+				srPage.selectDropdownToggle(mileageReportDropdownToggle, mileageReportDropdownToggleLi);
+				Thread.sleep(2000);
+				super.clickElement(mileageReportDefaltDateSelect);
+				Thread.sleep(2000);
+			}
+			
+		}
+	}
+	
+	/**
+	 * 按天统计方式来查询记录
+	 * @throws InterruptedException 
+	 */
+	public void mileageReportDayCheak() throws InterruptedException {
+		
+		super.clickElement(mileageReportCheckDaySelect);
+		Thread.sleep(2000);
+		super.clickElement(mileageReportImeiSearchBtn);
+		Thread.sleep(2000);
+		super.clickElement(mileageReportSearchImeiAllSelect);
+		Thread.sleep(2000);
+		super.clickElement(mileageReportSearchEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(mileageReportCheckDaySelect);
+		Thread.sleep(2000);
+		List<WebElement> dateLis = super.getElements(mileageReportDefaltDateSelectLi);
+		
+		
+		int size = dateLis.size();
+		for (int i =0;i<size;i++) {
+			if (i ==0) {
+				continue;
+			} else {
+				WebElement dateLi = dateLis.get(i);
+				Thread.sleep(2000);
+				dateLi.click();
+				
+				super.clickElement(mileageReportSearchBtn);
+				Thread.sleep(2000);
+				srPage.selectDropdownToggle(mileageReportDropdownToggle, mileageReportDropdownToggleLi);
+				Thread.sleep(2000);
+				super.clickElement(mileageReportDefaltDateSelect);
+				Thread.sleep(2000);
+			}
+			
+		}
+		
+	}
 	/**
 	 * 获取总油耗
 	 */
@@ -254,6 +342,8 @@ public class MileageReportPage extends AutomateDriver{
 		String allFuel = super.getText(selector).trim();
 		return allFuel;
 	}
+	
+
 	/**
 	 * 里程报表重新计算油耗
 	 */
@@ -262,6 +352,15 @@ public class MileageReportPage extends AutomateDriver{
 		super.operateInputElement(mileageReportFuelValue, value);
 		
 		super.clickElement(mileageReportRecalculateFuelBtn);
+	}
+	
+	/**
+	 * 获取总里程
+	 * @return
+	 */
+	public String getAllMileage(String selector) {
+
+		return super.getText(selector).trim();
 	}
 
 }

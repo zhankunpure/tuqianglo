@@ -8,9 +8,12 @@ import org.openqa.selenium.WebElement;
 import automatedriver.AutomateDriver;
 
 public class ParkingReportPage extends AutomateDriver{
+	
+	public StatisticalReportPage srPage;
 
 	public ParkingReportPage(WebDriver dr) {
 		super(dr);
+		srPage = new StatisticalReportPage(dr);
 	}
 	
 	/**
@@ -20,7 +23,7 @@ public class ParkingReportPage extends AutomateDriver{
 	/**
 	 * 停车未熄火报表表单 iframe //*[@id="parkingReportFrame"]
 	 */
-	public static final String parkingReportFrame = "//*[@id=\"parkingReportFrame\"]";
+	public static final String parkingReportFrame = "parkingReportFrame";
 	
 	public static final String parkingReportDropdownToggle = "x,/html/body/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div/button";
 	
@@ -97,11 +100,12 @@ public class ParkingReportPage extends AutomateDriver{
 	
 	/**
 	 * 停车未熄火报表下拉菜单
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public void parkingReportDropdownMenu() {
+	public void parkingReportDropdownMenu() throws InterruptedException {
 		
-		//this.selectDropdownToggle(parkingReportDropdownToggle, parkingReportDropdownToggleLi);
+		srPage.selectDropdownToggle(parkingReportDropdownToggle, parkingReportDropdownToggleLi);
 	}
 	/**
 	 * 停车未熄火报表获取总停留时间
@@ -112,22 +116,22 @@ public class ParkingReportPage extends AutomateDriver{
 		return super.getText(parkingReportStopNotOffAllTimes);
 		
 	}
-	
+
 	/**
 	 * 停车未熄火报表导出
 	 */
-//	public void parkingReporttExport() {
-//
-//		super.clickElement(Export);
-//
-//		super.clickElement(ExportModalBaseInfoAllSelect);
-//
-//		super.clickElement(ExportModalCustomerInfoAllSelect);
-//
-//		super.clickElement(ExportModalAddTaskBtn);
-//		// 隐性等待
-//		super.waitForElementToLoad(10, ExportModalDownloadTask);
-//		super.clickElement(ExportModalDownloadTask);
-//	}
+	public void parkingReportExport() {
+
+		super.clickElement(StatisticalReportPage.Export);
+
+		super.clickElement(StatisticalReportPage.ExportModalBaseInfoAllSelect);
+
+		super.clickElement(StatisticalReportPage.ExportModalCustomerInfoAllSelect);
+
+		super.clickElement(StatisticalReportPage.ExportModalAddTaskBtn);
+		// 隐性等待
+		super.waitForElementToLoad(10, StatisticalReportPage.ExportModalDownloadTask);
+		super.clickElement(StatisticalReportPage.ExportModalDownloadTask);
+	}
 
 }

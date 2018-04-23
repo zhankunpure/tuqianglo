@@ -1,6 +1,10 @@
 package pages.statisticalReportPage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import automatedriver.AutomateDriver;
 
@@ -25,9 +29,11 @@ public class SportOverviewPage extends AutomateDriver{
 	/**
 	 * 运动总览表单 iframe //*[@id="sportOverviewFrame"]
 	 */
-	public static final String sportOverviewFrame = "//*[@id=\"sportOverviewFrame\"]";
+	public static final String sportOverviewFrame = "sportOverviewFrame";
 	
 	public static final String sportOverviewDefaltTime = "x,//*[@id=\"runForm\"]/div[1]/div/div/div/span[2]";
+	
+	public static final String sportOverviewDefaltTimeLi = "x,//*[@id=\"runForm\"]/div[1]/div/div/div/div/ul/li";
 
 	public static final String sportOverviewYestoday = "x,//*[@id=\"runForm\"]/div[1]/div/div/div/div/ul/li[2]";
 
@@ -128,55 +134,42 @@ public class SportOverviewPage extends AutomateDriver{
 	 * 
 	 * @throws InterruptedException
 	 */
-	public void sportOverviewSelect(String accouont) throws InterruptedException {
-		// 昨天
+	public List<List<String>> sportOverviewSelect() throws InterruptedException {
+		
+		List<List<String>> datas = new ArrayList<List<String>>();
+		List<String> data = new ArrayList<String>();
+		
 		super.clickElement(sportOverviewDefaltTime);
-		Thread.sleep(1000);
-		super.clickElement(sportOverviewYestoday);
-
-		super.clickElement(sportOverviewUserSelect);
-
-		super.operateInputElement(sportOverviewSearchUserInput, accouont);
-
-		super.clickElement(sportOverviewSearchUserBtn);
-
-		super.clickElement(sportOverviewSelectSearchUser);
-
-		super.clickElement(sportOverviewSearchBtn);
-
 		Thread.sleep(2000);
-		// 本周
-		super.clickElement(sportOverviewDefaltTime);
-		Thread.sleep(1000);
-		super.clickElement(sportOverviewThisWeek);
-
-		super.clickElement(sportOverviewSearchBtn);
-
-		Thread.sleep(2000);
-		// 上周
-		super.clickElement(sportOverviewDefaltTime);
-		Thread.sleep(1000);
-		super.clickElement(sportOverviewLastWeek);
-
-		super.clickElement(sportOverviewSearchBtn);
-
-		Thread.sleep(2000);
-		// 本月
-		super.clickElement(sportOverviewDefaltTime);
-		Thread.sleep(1000);
-		super.clickElement(sportOverviewThisMonth);
-
-		super.clickElement(sportOverviewSearchBtn);
-
-		Thread.sleep(2000);
-		// 上月
-		super.clickElement(sportOverviewDefaltTime);
-		Thread.sleep(1000);
-		super.clickElement(sportOverviewLastMonth);
-
-		super.clickElement(sportOverviewSearchBtn);
-
-		Thread.sleep(2000);
+		List<WebElement> elements = super.getElements(sportOverviewDefaltTimeLi);
+		
+		for (WebElement element : elements) {
+			
+			element.click();
+			Thread.sleep(2000);
+			super.clickElement(sportOverviewSearchBtn);
+			Thread.sleep(2000);
+			String AllMileage = this.getAllMileage(sportOverviewAllMileage);
+			
+			String AlloverSpeedTimes = this.getSpoerOverviewAlloverSpeedTimes();
+			
+			String AllstopTimes = this.getSpoerOverviewAllstopTimes();
+			
+			data.add(AllMileage);
+			
+			data.add(AlloverSpeedTimes);
+			
+			data.add(AllstopTimes);
+			
+			datas.add(data);
+			data.clear();
+			Thread.sleep(2000);
+			super.clickElement(sportOverviewDefaltTime);
+			
+			Thread.sleep(2000);
+		}
+		
+		return datas;
 	}
 	
 	/**
@@ -185,9 +178,7 @@ public class SportOverviewPage extends AutomateDriver{
 	 */
 	public String getSpoerOverviewAlloverSpeedTimes() {
 
-		String AlloverSpeedTimes = super.getText(sportOverviewAlloverSpeedTimes).trim();
-
-		return AlloverSpeedTimes;
+		return super.getText(sportOverviewAlloverSpeedTimes).trim();
 	}
 	/**
 	 * 获取运动总览总停留次数
@@ -195,9 +186,16 @@ public class SportOverviewPage extends AutomateDriver{
 	 */
 	public String getSpoerOverviewAllstopTimes() {
 
-		String AllstopTimes = super.getText(sportOverviewAllstopTimes).trim();
+		return super.getText(sportOverviewAllstopTimes).trim();
+	}
+	
+	/**
+	 * 获取总里程
+	 * @return
+	 */
+	public String getAllMileage(String selector) {
 
-		return AllstopTimes;
+		return super.getText(selector).trim();
 	}
 	
 	

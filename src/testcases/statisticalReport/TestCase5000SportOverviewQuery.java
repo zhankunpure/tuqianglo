@@ -1,5 +1,7 @@
 package testcases.statisticalReport;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
@@ -24,6 +26,8 @@ public class TestCase5000SportOverviewQuery {
 	private SportOverviewPage soPage;
 	
 	private ClientRedis cr;
+	
+	private List<List<String>> datas;
   
   @BeforeTest
   public void beforeTest() {
@@ -58,9 +62,11 @@ public class TestCase5000SportOverviewQuery {
 	  //进入运动总览iframe
 	  srPage.intoFrame(soPage.sportOverviewFrame);
 	  //运动总览报表查询
-	  soPage.sportOverviewSelect("web_autotest");
+	  datas = soPage.sportOverviewSelect();
 	  
-	  String AllMileage = srPage.getAllMileage(soPage.sportOverviewAllMileage);
+	  System.out.println(datas);
+	  
+	  String AllMileage = soPage.getAllMileage(soPage.sportOverviewAllMileage);
 	  
 	  String AlloverSpeedTimes = soPage.getSpoerOverviewAlloverSpeedTimes();
 	  

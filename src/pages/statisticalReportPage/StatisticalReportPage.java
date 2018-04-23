@@ -1,6 +1,5 @@
 package pages.statisticalReportPage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -120,16 +119,6 @@ public class StatisticalReportPage extends AutomateDriver {
 
 	
 	
-	/**
-	 * 获取总里程
-	 * @return
-	 */
-	public String getAllMileage(String selector) {
-
-		String AllMileage = super.getText(selector).trim();
-
-		return AllMileage;
-	}
 
 
 	
@@ -147,11 +136,4 @@ public class StatisticalReportPage extends AutomateDriver {
 		super.Select(selector, by, value);
 	}
 	
-	/**
-	 * 获取总用时
-	 */
-	public String getAllMileagesHours(String selector) {
-
-		return super.getText(selector);
-	}	
 }

@@ -14,7 +14,7 @@ import automatedriver.AutomateDriver;
  */
 public class StayReportPage extends AutomateDriver{
 	
-	private StatisticalReportPage srPage;
+	public StatisticalReportPage srPage;
 
 	public StayReportPage(WebDriver dr) {
 		super(dr);
@@ -115,10 +115,11 @@ public class StayReportPage extends AutomateDriver{
 	}
 	/**
 	 * 停留报表获取总停留时间
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public String getStayReportStayAlltimes() {
-		
+	public String getStayReportStayAlltimes() throws InterruptedException {
+		Thread.sleep(2000);
 		return super.getText(stayReportStayAllTimes);
 		
 	}
@@ -127,19 +128,21 @@ public class StayReportPage extends AutomateDriver{
 	
 	/**
 	 * 停留报表导出
+	 * @throws InterruptedException 
 	 */
-	public void stayReportExport() {
-
+	public void stayReportExport() throws InterruptedException {
+		Thread.sleep(2000);
 		super.clickElement(srPage.Export);
-
+		Thread.sleep(2000);
 		super.clickElement(srPage.ExportModalBaseInfoAllSelect);
-
+		Thread.sleep(2000);
 		super.clickElement(srPage.ExportModalCustomerInfoAllSelect);
-
+		Thread.sleep(2000);
 		super.clickElement(srPage.ExportModalAddTaskBtn);
 		// 隐性等待
 		super.waitForElementToLoad(10, srPage.ExportModalDownloadTask);
 		super.clickElement(srPage.ExportModalDownloadTask);
+		Thread.sleep(2000);
 	}
 
 }
