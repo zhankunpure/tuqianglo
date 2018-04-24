@@ -41,23 +41,23 @@ public class TestCase2006EditFictionsAccount {
  		 for(int i=0;i<CsvData.size();i++){
  		 acfam.editFicAccount(CsvData.get(i).get(0), CsvData.get(i).get(1), CsvData.get(i).get(2), CsvData.get(i).get(3));
  		 if(CsvData.get(i).get(1).equals("jimi1234")){
- 			 Assert.assertEquals(acfam.getFicAccountRePasswordTip(), assertd.accountCenterFictitiousRePaawordTip()[0],"纭瀵嗙爜閿欒楠岃瘉澶辫触");
+ 			 Assert.assertEquals(acfam.getFicAccountRePasswordTip(), assertd.accountCenterFictitiousRePaawordTip(),"");
  			 
  		 }else{
  			 String editDataCheck=CsvData.get(i).get(2);
  			 String SendInsCheck=CsvData.get(i).get(3);
- 			 Assert.assertEquals(acfam.getEditFicAccountOperateSuccTitle(),assertd.accountCenterMsgCenterGetSetReadStatusText()[0],"缂栬緫铏氭嫙璐︽埛澶辫触");
+ 			 Assert.assertEquals(acfam.getEditFicAccountOperateSuccTitle(),assertd.accountCenterMsgCenterGetSetReadStatusText(),"");
  			 acfam.switchToFicAccountPage();
  			 acfam.clickEditFicAccountBtn();
  			 if(editDataCheck.equals("enableEditData")){
- 				 Assert.assertTrue(acfam.getEditFicAccountEditDateSelectStatus(),"妫�鏌ョ紪杈戞暟鎹閫夋涓哄嬀閫夊け璐�");
+ 				 Assert.assertTrue(acfam.getEditFicAccountEditDateSelectStatus(),"");
  			 }else{
- 				Assert.assertFalse(acfam.getEditFicAccountEditDateSelectStatus(),"妫�鏌ョ紪杈戞暟鎹閫夋涓轰笉鍕鹃�夊け璐�");
+ 				Assert.assertFalse(acfam.getEditFicAccountEditDateSelectStatus(),"");
  			 }
  			 if(SendInsCheck.equals("enableSendIns")){
- 				Assert.assertTrue(acfam.getEditFicAccountSendInsSelectStatus(),"妫�鏌ヤ笅鍙戞寚浠ゅ閫夋涓哄嬀閫夊け璐�");
+ 				Assert.assertTrue(acfam.getEditFicAccountSendInsSelectStatus(),"");
  			 }else{
- 				Assert.assertFalse(acfam.getEditFicAccountSendInsSelectStatus(),"妫�鏌ヤ笅鍙戞寚浠ゅ閫夋涓轰笉鍕鹃�夊け璐�");
+ 				Assert.assertFalse(acfam.getEditFicAccountSendInsSelectStatus(),"");
  			 }
  		 }
  		 }

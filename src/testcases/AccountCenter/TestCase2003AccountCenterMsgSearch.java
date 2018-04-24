@@ -33,7 +33,7 @@ public class TestCase2003AccountCenterMsgSearch  {
 		BasePage basep=new BasePage(dr);
 		ConnectMysql conn=new ConnectMysql();
 		SqlData sqld=new SqlData();
-		CsvReader csvr=new CsvReader("account_center","message_search_data.csv");
+		CsvReader csvr=new CsvReader("accountcenter","message_search_data.csv");
 		List<List<String>> csv_data=csvr.readCSVFile();
 		AccountCenterMsgCenterPage acmcp=new AccountCenterMsgCenterPage(dr);
 		basep.login();
@@ -48,7 +48,7 @@ public class TestCase2003AccountCenterMsgSearch  {
 			String userId=fullParentIdAnduserId.get(1);
 			account_center_mess_number=conn.connectMySql(sqld.account_center_mess_number(fullParentId, userId)[i][0], sqld.account_center_mess_number(fullParentId, userId)[i][1]);
 			int except_message_num=Integer.parseInt(account_center_mess_number.get(0));
-			Assert.assertEquals(actual_message_num, except_message_num, "消息中心消息数量错误");
+			Assert.assertEquals(actual_message_num, except_message_num, "");
 		}
 	}
 

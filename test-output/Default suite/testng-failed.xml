@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.AccountCenter.TestCase2001AccountCenterMsgUnread">
+      <class name="testcases.globalSearch.TestCase6000GlobalSearchBaseQuery">
         <methods>
-          <include name="tearDown"/>
-          <include name="test_account_center_msg_unread"/>
-          <include name="setUp"/>
+          <include name="afterTest"/>
+          <include name="globalSearchBaseQuery"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- testcases.AccountCenter.TestCase2001AccountCenterMsgUnread -->
+      </class> <!-- testcases.globalSearch.TestCase6000GlobalSearchBaseQuery -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

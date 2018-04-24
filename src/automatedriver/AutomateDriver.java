@@ -309,13 +309,25 @@ public class AutomateDriver {
 	 * @param selector
 	 */
 	public void switch_to_frame(String selector){
-		
-		if(selector!=""){
-			dr.switchTo().frame(selector);
-		}else{
-//			dr.switchTo().parentFrame();
-			dr.switchTo().defaultContent();
+		String by;
+		String frameValue;
+		if (selector.contains(",")) {
+			by = selector.split(",")[0];
+			frameValue = selector.split(",")[1];
+			System.out.println("frameValue="+frameValue);
+			WebElement element = dr.findElement(By.xpath(frameValue));
+			dr.switchTo().frame(element);
+		} else {
+			
+			if(selector!=""){
+				dr.switchTo().frame(selector);
+			}else{
+//				dr.switchTo().parentFrame();
+				dr.switchTo().defaultContent();
+			}
 		}
+		
+		
 	}
 	
 	/**

@@ -46,18 +46,18 @@ public class TestCase2005AddFictiousAccount {
     	 acfam.enterFictitiousAccountPage();
     	 acfam.clickAddFicAccountBtn();
     	 acfam.clickCancelAddFicAccount();
-    	 Assert.assertTrue(acfam.ficAccountManagerIsExist(), "鐐瑰嚮鍙栨秷娣诲姞铏氭嫙璐﹀彿澶辫触");
+    	 Assert.assertTrue(acfam.ficAccountManagerIsExist(), "");
     	 acfam.clickCancelAddFicAccountBtn();
-    	 Assert.assertTrue(acfam.ficAccountManagerIsExist(), "鐐瑰嚮鍙栨秷鎸夐挳娣诲姞铏氭嫙璐﹀彿澶辫触");
+    	 Assert.assertTrue(acfam.ficAccountManagerIsExist(), "");
     	 acfam.thirdClickAddAccountBtn();
     	 for(int i=0;i<CsvData.size();i++){
     		 acfam.addFicAccount(CsvData.get(i).get(0), CsvData.get(i).get(1), CsvData.get(i).get(2), CsvData.get(i).get(3), CsvData.get(i).get(4));
     		 if(CsvData.get(i).get(0).contains("#")){
-    			 Assert.assertEquals(acfam.getFicAccountAccountTip(), assertd.accountCenterFictitiousAccountTip()[0],"閿欒铏氭嫙璐﹀彿璐﹀彿鏂█澶辫触");
+    			 Assert.assertEquals(acfam.getFicAccountAccountTip(), assertd.accountCenterFictitiousAccountTip(),"");
     		 }else if(CsvData.get(i).get(1).equals("888888")){
-    			 Assert.assertEquals(acfam.getFicAccountPasswordTip(), assertd.accountCenterFictitiousPaawordTip()[0],"閿欒铏氭嫙璐﹀彿瀵嗙爜鏂█澶辫触");
+    			 Assert.assertEquals(acfam.getFicAccountPasswordTip(), assertd.accountCenterFictitiousPaawordTip(),"");
     		 }else if(CsvData.get(i).get(1).equals("jimi1234")){
-    			 Assert.assertEquals(acfam.getFicAccountRePasswordTip(), assertd.accountCenterFictitiousRePaawordTip()[0],"閿欒铏氭嫙璐﹀彿楠岃瘉瀵嗙爜鏂█澶辫触");
+    			 Assert.assertEquals(acfam.getFicAccountRePasswordTip(), assertd.accountCenterFictitiousRePaawordTip(),"");
     		 }else{
     			 
     			 //Assert.assertEquals(acfam.getAddFicAccountSuccessLayui(), assertd.accountCenterMsgCenterGetSetReadStatusText()[0],"娣诲姞铏氭嫙璐﹀彿澶辫触");
@@ -65,7 +65,7 @@ public class TestCase2005AddFictiousAccount {
     				 if(account.equals("910hm")){
     					 break;
     				 }else{
-    					 Assert.fail("娣诲姞铏氭嫙璐﹀彿娌℃壘鍒�");
+    					 Assert.fail("");
     				 }
     			 }
     		 }
@@ -76,9 +76,9 @@ public class TestCase2005AddFictiousAccount {
     	 String id=acfam.getFicAccountId1();
     	 System.out.println(id);
     	 getEditFicAccountAcc=conn.connectMySql(sqld.accountCenterFicAccountGetAccount(acfam.getFicAccountId1())[0], sqld.accountCenterFicAccountGetAccount(acfam.getFicAccountId1())[1]);
-    	 Assert.assertEquals(getEditFicAccountAcc.get(0), "910hm", "铏氭嫙璐﹀彿鐧婚檰鍚嶇О閿欒");
-    	 Assert.assertTrue(acfam.getEditFicAccountEditDateSelectStatus(), "淇敼鏁版嵁鍕鹃�夌姸鎬侀敊璇�");
-    	 Assert.assertTrue(acfam.getEditFicAccountSendInsSelectStatus(),"涓嬪彂鎸囦护鍕鹃�夌姸鎬侀敊璇�");
+    	 Assert.assertEquals(getEditFicAccountAcc.get(0), "910hm", "");
+    	 Assert.assertTrue(acfam.getEditFicAccountEditDateSelectStatus(), "");
+    	 Assert.assertTrue(acfam.getEditFicAccountSendInsSelectStatus(),"");
 		 }
 }
 

@@ -40,7 +40,7 @@ public class TestCase2004FictiousAccountVerify {
     	 SqlData sqld=new SqlData();
     	 basep.login();
     	 acfam.enterFictitiousAccountPage();
-    	 Assert.assertEquals(acfam.getFicAccountTitle(), assertd.accountCenterFictitiousAccountTitle()[0], "杩涘叆铏氭嫙璐﹀彿椤甸潰澶辫触");
+    	 Assert.assertEquals(acfam.getFicAccountTitle(), assertd.accountCenterFictitiousAccountTitle(), "杩涘叆铏氭嫙璐﹀彿椤甸潰澶辫触");
     	 List<String> ficAccountData =new ArrayList<String>();
     	 ficAccountData=conn.connectMySql(sqld.accountCenterFictitiousAccountData(comd.baseUser()[2])[0], sqld.accountCenterFictitiousAccountData(comd.baseUser()[2])[1]);
     	 if(ficAccountData.size()==0){

@@ -270,7 +270,7 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
     //µã»÷È«¾ÖËÑË÷
     public void click_GlobalSearch() throws InterruptedException {
     	super.waitForElementToLoad(10, "globalSearch");
-    	super.clickElement("x,//*[@id='globalSearch']");
+    	super.clickElement("globalSearch");
     	Thread.sleep(2000);
     }
     
