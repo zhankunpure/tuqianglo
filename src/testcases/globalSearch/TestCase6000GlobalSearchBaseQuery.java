@@ -10,6 +10,11 @@ import pages.accountcenterPage.AccountCenterNaviBarPage;
 import pages.base.BasePage;
 import pages.globalSearchPage.GlobalSearchPage;
 
+/**
+ * 基本搜索功能
+ * @author ZhanKun
+ *
+ */
 public class TestCase6000GlobalSearchBaseQuery {
  
   public WebDriver dr;
@@ -56,15 +61,11 @@ public class TestCase6000GlobalSearchBaseQuery {
 	  
 	  page.logout();
   }
-
+  
   @AfterTest
   public void afterTest() throws InterruptedException {
-	  
-	  
-	  
-	  
-	  
-	  page.quit_bor();
+	  	  
+	  	  page.quit_bor();
   }
 
 }

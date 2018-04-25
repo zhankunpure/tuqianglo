@@ -114,6 +114,10 @@ public class AutomateDriver {
 				} else if (selectBy.equals("p")) {
 					WebElement element = dr.findElement(By.partialLinkText(selectValue));
 					return element;
+				} else if (selectBy.equals("n")) {
+					WebElement element = dr.findElement(By.name(selectValue));
+					return element;
+					
 				}
 			}
 		}

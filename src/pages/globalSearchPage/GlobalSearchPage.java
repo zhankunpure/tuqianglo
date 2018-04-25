@@ -45,7 +45,7 @@ public class GlobalSearchPage extends AutomateDriver{
 	
 	public static final String DeviceBaseQueryNoData = "x,//*[@id=\"complex_device_table_nodata\"]/div/span/i";
 	
-	public static final String CloseBaseQuery = "x,/html/body/div[14]/span[1]/a";
+	public static final String CloseBaseQuery = "x,/html/body/div[13]/span[1]/a";
 	
 	/**
 	 * 记录的条数
@@ -87,7 +87,7 @@ public class GlobalSearchPage extends AutomateDriver{
 	 */
 	public int thirdLastPageNum(String selector_ul){
 		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
-		super.explicitWait("x,//*[@id='"+selector_ul+"']/ul/li");
+		super.explicitWait("//*[@id='"+selector_ul+"']/ul/li");
 		ThirdLastPageLi=super.getElements("x,//*[@id='"+selector_ul+"']/ul/li");
 		System.out.println(ThirdLastPageLi.size());
 		String ThirdLastPageText=ThirdLastPageLi.get(ThirdLastPageLi.size()-3).getText();
@@ -134,6 +134,17 @@ public class GlobalSearchPage extends AutomateDriver{
 		
 		return NextPageClassValue;
 		
+	}
+	
+	public void clickDeviceDetail(){
+		
+		super.clickElement(DeviceDetail);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
