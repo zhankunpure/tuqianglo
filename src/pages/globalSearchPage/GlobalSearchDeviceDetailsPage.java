@@ -48,7 +48,7 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver{
 	
 	public static final String TrackReplayPageDriverName = "driverName";
 	
-	public static final String TrackReplayPageDriverImei = "x,//*[@id=\"driverName\"]/span";
+	public static final String TrackReplayPageDriverImei = "x,/html/body/div[1]/div/div/div[1]/div[1]/div/span[1]/span";
 	//实时追踪
 	public static final String TrackingPageDriverName = "driverName";
 	
@@ -56,13 +56,13 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver{
 	
 	public static final String ConsolePageImeiInput = "key2";
 	
-	public static final String NickName = "//*[@id=\"complex_device_user_realtion_tbody\"]tr/td[2]";
+	public static final String NickName = "x,/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr/td[2]";
 	
-	public static final String UserType = "//*[@id=\"complex_device_user_realtion_tbody\"]tr/td[3]/div";
+	public static final String UserType = "x,/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr/td[3]/div";
 	
-	public static final String Account = "//*[@id=\"complex_device_user_realtion_tbody\"]tr/td[4]";
+	public static final String Account = "x,/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr/td[4]";
 	
-	public static final String Phone = "//*[@id=\"complex_device_user_realtion_tbody\"]tr/td[5]";
+	public static final String Phone = "x,/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr/td[5]";
 	
 	/**
 	 * 设备信息
@@ -158,6 +158,26 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver{
 	
 	public static final String GlobalSearchImeiBtn = "complexAllot_globalSearch_btn";
 	
+	public static final String GlobalSearchImeiLi = "x,/html/body/div[3]/div[2]/div[2]/div[3]/div/div[2]/div/div/div[1]/div/ul/li";
+	
+	/**
+	 * 设备指令
+	 */
+	
+	public static final String TaxonomyOfVehicleSystem = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/span[2]";
+	
+	public static final String TaxonomyOfVehicleSystemLi = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/div/ul/li";
+	
+	public static final String CarSystem = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]"
+			+ "/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/span[2]";
+	
+	public static final String CarSystemLi = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/"
+			+ "div/div[3]/div[1]/div/div[1]/div/div/div/ul/li";
+	
+	public static final String InstructionSendBtn= "instruction-send-btn";
+	
+	public static final String Instruction_IMEI = "instruction_IMEI";
+			
 	public List<String> getUserInfo(){
 		String nickname = super.getText(NickName).trim();
 		String usertype = super.getText(UserType).trim();

@@ -68,7 +68,7 @@ public class TestCase6001GlobalSearchCustomRelation {
 	  detailsPage = new GlobalSearchDeviceDetailsPage(dr);
 	  
 	  String expectedImei = detailsPage.getText(detailsPage.DeviceImei).trim();
-	  
+	  System.out.println(expectedImei);
 	  expectedInfos = detailsPage.getUserInfo();
 	  System.out.println("==================================================");
 	  System.out.println(expectedInfos);
