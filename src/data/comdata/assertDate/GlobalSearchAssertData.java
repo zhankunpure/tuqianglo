@@ -38,5 +38,7 @@ public class GlobalSearchAssertData {
 	
 	public static String totalKmNeedForNumbers = "必须为数字(最多保留两位小数)";
 	
+	public static String OverSecondError = "超速持续时间请输入10的倍数";
+	
 	
 }
