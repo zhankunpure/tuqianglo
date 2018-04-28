@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.globalSearch.TestCase6001GlobalSearchCustomRelation">
+      <class name="testcases.setUpPage.TestCase7002CreateInsCommonPattern">
         <methods>
           <include name="afterTest"/>
+          <include name="CreateInsCommonPattern"/>
           <include name="beforeTest"/>
-          <include name="globalSearchCustomRelation"/>
         </methods>
-      </class> <!-- testcases.globalSearch.TestCase6001GlobalSearchCustomRelation -->
+      </class> <!-- testcases.setUpPage.TestCase7002CreateInsCommonPattern -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

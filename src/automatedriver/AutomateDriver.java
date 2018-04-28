@@ -323,11 +323,12 @@ public class AutomateDriver {
 			dr.switchTo().frame(element);
 		} else {
 			
-			if(selector!=""){
-				dr.switchTo().frame(selector);
+			if(selector ==""){
+				dr.switchTo().defaultContent();
+				
 			}else{
 //				dr.switchTo().parentFrame();
-				dr.switchTo().defaultContent();
+				dr.switchTo().frame(selector);
 			}
 		}
 		

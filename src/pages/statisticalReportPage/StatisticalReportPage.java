@@ -122,12 +122,16 @@ public class StatisticalReportPage extends AutomateDriver {
 
 
 	
-	public void checkRadio(String selector1,String selector2) {
-		
+	public void checkRadio(String selector1,String selector2) throws InterruptedException {
+			Thread.sleep(2000);
 		if (super.getElement(selector1).isSelected()) {
+			Thread.sleep(2000);
 			super.clickElement(selector2);
+			Thread.sleep(2000);
 		} else {
+			Thread.sleep(2000);
 			super.clickElement(selector1);
+			Thread.sleep(2000);
 		}
 		
 	}

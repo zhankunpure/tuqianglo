@@ -2,11 +2,11 @@ package data.comdata;
 
 public class ComData {
 	public String baseUrl(){
-		String[] BaseUrl={"http://tuqiangol.com","http://tujunsat.jimicloud.com"};
-		return BaseUrl[1];
+		String[] BaseUrl={"http://tuqiangol.com","http://tujunsat.jimicloud.com","http://172.16.0.116:8691"};
+		return BaseUrl[2];
 	}
 	public String[] baseUser(){
-		String [] BasUser= {"web_autotest","jimi123","testjimi","jimi123"};
+		String [] BasUser= {"web_autotest","jimi123","jimitest","jimi123"};
 		return BasUser;
 	}
 	

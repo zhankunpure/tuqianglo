@@ -25,9 +25,11 @@ public class BasePage extends AutomateDriver {
 		super.navigateToPage(comd.baseUrl()+"/");
 		super.explicitWait("//*[@id='logins']");
 		
-		super.operateInputElement("account", comd.baseUser()[0]);
+		super.deleteCookie();
 		
-		super.operateInputElement("password", comd.baseUser()[1]);
+		super.operateInputElement("account", comd.baseUser()[2]);
+		
+		super.operateInputElement("password", comd.baseUser()[3]);
 		
 		if(super.checkboxIsSelector("x,//*[@id='checkbox']")==false) {
 			super.clickElement("x,//*[@id='checkbox']");
@@ -171,6 +173,95 @@ public class BasePage extends AutomateDriver {
 		LastPageListTr=super.getElements("x,//*[@id='"+selector_tr+"']/tr");
 		int LastPageListNum=LastPageListTr.size();
 		return LastPageListNum;
+		
+	}
+	
+	/**
+	 * 记录的条数
+	 * @param selector_ul
+	 * @param selector_tr
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public int pageNumber(String nodataID,String selector_ul,String selector_tr) throws InterruptedException{
+		if(super.isElementExist(nodataID)){
+			return 0;
+		}else{
+			if(this.thirdLastPageNum(selector_ul)<10){
+				this.clickLastPage(selector_ul);
+				super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+				int pageNumber=(this.thirdLastPageNum(selector_ul)-1)*10+this.lastPageListNum(selector_tr);
+				return pageNumber;
+			}else{
+				for(int j=0;j<10000;j++){
+					if(this.nextPageStutas(selector_ul).equals("current next")){
+						break;
+						}else{
+							this.clickLastPage(selector_ul);
+							Thread.sleep(2000);
+							}
+					
+					super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+		}
+				int pageNumber=(this.thirdLastPageNum(selector_ul)-1)*10+this.lastPageListNum(selector_tr);
+				return pageNumber;
+			}
+		}
+
+	}
+	/**
+	 * 获取倒数第三页的页数
+	 * @param selector_ul
+	 * @return
+	 */
+	public int thirdLastPageNum(String selector_ul){
+		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
+		super.explicitWait("//*[@id='"+selector_ul+"']/ul/li");
+		ThirdLastPageLi=super.getElements("x,//*[@id='"+selector_ul+"']/ul/li");
+		System.out.println(ThirdLastPageLi.size());
+		String ThirdLastPageText=ThirdLastPageLi.get(ThirdLastPageLi.size()-3).getText();
+		int i=Integer.parseInt(ThirdLastPageText);
+		return i;
+	}
+	/**
+	 * 点击最后一页
+	 * @param selector_ul
+	 * @return 
+	 */
+	public void clickLastPage(String selector_ul){
+		
+		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
+		
+		ThirdLastPageLi=super.getElements("x,//*[@id='"+selector_ul+"']/ul/li");
+		
+		ThirdLastPageLi.get(ThirdLastPageLi.size()-3).click();
+		
+	}
+	/**
+	 * 获取最后一页的条数
+	 * @param selector_tr
+	 * @return
+	 */
+	public int lastPageListNum(String selector_tr){
+		List<WebElement> LastPageListTr=new ArrayList<WebElement>();
+		LastPageListTr=super.getElements("x,//*[@id='"+selector_tr+"']/tr");
+		int LastPageListNum=LastPageListTr.size();
+		return LastPageListNum;
+		
+	}
+	/**
+	 * 下一页的按钮状态
+	 * @param selector_ul
+	 * @return
+	 */
+	
+	public String nextPageStutas(String selector_ul){
+		
+		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
+		ThirdLastPageLi=super.getElements("x,//*[@id='"+selector_ul+"']/ul/li");
+		String NextPageClassValue = ThirdLastPageLi.get(ThirdLastPageLi.size()-2).getAttribute("class");
+		
+		return NextPageClassValue;
 		
 	}
 
