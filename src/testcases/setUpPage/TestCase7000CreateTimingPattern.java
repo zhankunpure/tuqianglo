@@ -39,6 +39,14 @@ public class TestCase7000CreateTimingPattern {
 	  assertEquals(actualURL, imPage.InstructionManagementURL, "进入指令管理页面不成功！");
 	  
 	  imPage.CreateTimingPattern();
+	  
+	  String actualPatternName = imPage.InsTimingPatternFirstRecordModify();
+	  
+	  assertEquals(actualPatternName, "定时模式第一条记录修改成功", "定时模式第一条记录修改失败");
+	  
+	  imPage.sendInstructions("868120137194665");
+	  
+	  
   }
 
   @AfterTest

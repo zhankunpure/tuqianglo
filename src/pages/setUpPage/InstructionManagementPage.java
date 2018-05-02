@@ -625,6 +625,90 @@ public class InstructionManagementPage extends AutomateDriver {
 	public static final String DeleteCancel = "p,取消";
 
 	public static final String SendInstructions = "x,/html/body/div[3]/div[2]/div/div/form/div/div/div[3]/button";
+	/**
+	 * 第一条记录模板名称
+	 */
+	public static final String FirstRecordInstructionsModalName = "x,//*[@id=\"templateBody\"]/tr[1]/td[2]";
+	
+	/**
+	 * 定时模式第一条记录修改
+	 * @throws InterruptedException
+	 */
+	public String InsTimingPatternFirstRecordModify() throws InterruptedException{
+		
+		super.clickElement(Modify);
+		Thread.sleep(2000);
+		this.toInstructionsModalIframe();
+		Thread.sleep(2000);
+		super.operateInputElement(InstructionsModalNameInput, "定时模式第一条记录修改成功");
+		Thread.sleep(2000);
+		super.clickElement(TimeOfReports);
+		Thread.sleep(2000);
+		super.clickElement(Now);
+		Thread.sleep(2000);
+		super.operateInputElement(TimeLimitCycleInput, "3");
+		Thread.sleep(2000);
+		super.switch_to_frame("");
+		Thread.sleep(2000);
+		super.clickElement(SaveRules);
+		Thread.sleep(2000);
+		
+		String modifySuccess =  super.getText(FirstRecordInstructionsModalName).trim();
+		return modifySuccess;		
+	}
+	/**
+	 * 星期模式第一条记录修改
+	 * @throws InterruptedException
+	 */
+	public String InsWeekPatternFirstRecordModify() throws InterruptedException{
+		
+		super.clickElement(Modify);
+		Thread.sleep(2000);
+		this.toInstructionsModalIframe();
+		Thread.sleep(2000);
+		super.operateInputElement(InstructionsModalNameInput, "星期模式第一条记录修改成功");
+		Thread.sleep(2000);
+		super.clickElement(TimeOfWeekPattern);
+		Thread.sleep(2000);
+		super.clickElement(Now);
+		Thread.sleep(2000);
+		super.operateInputElement(TimeLimitCycleOfWeekPatternInut, "1");
+		Thread.sleep(2000);
+		super.switch_to_frame("");
+		Thread.sleep(2000);
+		super.clickElement(SaveRules);
+		Thread.sleep(2000);
+				
+		String modifySuccess =  super.getText(FirstRecordInstructionsModalName).trim();
+		return modifySuccess;	
+	}
+	
+	/**
+	 * 普通模式第一条记录修改
+	 * @throws InterruptedException
+	 */
+	public String InsCommonPatternFirstRecordModify() throws InterruptedException{
+		
+		super.clickElement(Modify);
+		Thread.sleep(2000);
+		this.toInstructionsModalIframe();
+		Thread.sleep(2000);
+		super.operateInputElement(InstructionsModalNameInput, "普通模式第一条记录修改成功");
+		Thread.sleep(2000);
+		super.clickElement(WakeUpTime);
+		Thread.sleep(2000);
+		super.clickElement(Now);
+		Thread.sleep(2000);
+		super.operateInputElement(TimeLimitCycleOfCommonPatternInut, "7");
+		Thread.sleep(2000);
+		super.switch_to_frame("");
+		Thread.sleep(2000);
+		super.clickElement(SaveRules);
+		Thread.sleep(2000);
+		
+		String modifySuccess =  super.getText(FirstRecordInstructionsModalName).trim();
+		return modifySuccess;			
+	}
 
 	/**
 	 * 第一个模板发送指令
@@ -641,7 +725,7 @@ public class InstructionManagementPage extends AutomateDriver {
 		super.clickElement(AddIMEIBtn);
 		Thread.sleep(2000);
 		super.clickElement(SendInstructions);
-
+		Thread.sleep(2000);
 	}
 
 	// ============================================================================================================================
@@ -951,6 +1035,10 @@ public class InstructionManagementPage extends AutomateDriver {
 	
 	public static final String MarkNullBatchInsLogs = "markNull-batchInsLogs";
 	
+	/**
+	 *  下发指令管理
+	 * @throws InterruptedException
+	 */
 	public void batchInsManagement() throws InterruptedException{
 		
 		super.clickElement(BatchInsList);

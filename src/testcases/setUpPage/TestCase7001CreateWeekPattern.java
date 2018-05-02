@@ -45,6 +45,12 @@ public class TestCase7001CreateWeekPattern {
 	  
 	  imPage.CreateWeekPattern();
 	  
+	  String actualPatternName = imPage.InsWeekPatternFirstRecordModify();
+	  
+	  assertEquals(actualPatternName, "星期模式第一条记录修改成功", "星期模式第一条记录修改失败");
+	  
+	  imPage.sendInstructions("868120137194665");
+	  
   }
 
   @AfterTest

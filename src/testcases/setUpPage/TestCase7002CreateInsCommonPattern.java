@@ -42,6 +42,12 @@ public class TestCase7002CreateInsCommonPattern {
 	  assertEquals(actualURL, imPage.InstructionManagementURL, "进入指令管理页面不成功");
 	  
 	  imPage.createInsCommonPattern();
+	  
+	  String actualPatternName = imPage.InsCommonPatternFirstRecordModify();
+	  
+	  assertEquals(actualPatternName, "普通模式第一条记录修改成功", "普通模式第一条记录修改失败");
+	  
+	  imPage.sendInstructions("868120137194665");
   }
 
   @AfterTest
