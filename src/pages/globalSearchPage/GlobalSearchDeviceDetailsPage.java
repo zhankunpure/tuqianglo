@@ -36,6 +36,8 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 	public static final String trajectory = "p,轨迹";
 
 	public static final String Track = "p,追踪";
+	
+	public static final String RelieveBinding = "p,解绑";
 
 	public static final String LookAtTheAlarm = "p,查看告警";
 
@@ -349,8 +351,10 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 	/**
 	 * 设备指令
 	 */
-	//指令类型 Select
-	public static final String TaxonomyOfVehicleSystemSelect = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/span[2]";
+	//指令类型 Select                                                     
+	public static final String InstructionType = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/span[2]";
+	
+	public static final String InstructionTypeLi = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/div/ul/li";
 	//车系分类
 	public static final String TaxonomyOfVehicleSystemLi1 = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/div/ul/li[1]";
 	//设防/撤防
@@ -359,6 +363,10 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 	public static final String TaxonomyOfVehicleSystemLi3 = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[1]/div/div/div/ul/li[3]";
 	
 	public static final String DeviveInstructionMessage = "x,/html/body/div[11]";
+	
+	public static final String InstructionSendEnsure = "x,/html/body/div[13]/div[3]/a[1]";
+	
+	public static final String InstructionSendCancel = "x,/html/body/div[13]/div[3]/a[2]";
 	
 
 	public static final String CarSystem = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]"
@@ -370,13 +378,248 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 	public static final String InstructionSendBtn = "instruction-send-btn";
 
 	public static final String Instruction_IMEI = "instruction_IMEI";
+	//上报方式
+	public static final String TheWayOfReporting = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/span[2]";
+	//平台和短信
+	public static final String PlatformAndSMS = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/div/ul/li[2]";
 	
-	public void deviceInstruction(){
+	public static final String TheWayOfReportingLi = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/div/ul/li";
+	
+	public static final String SOSPhoneNumber1 = "text_0";
+	
+	public static final String SOSPhoneNumber2= "text_1";
+	
+	public static final String SOSPhoneNumber3 = "text_2";
+	
+	public static final String DeleteSOSPhoneNumber = "p,删除SOS号码";
+	
+	public static final String Sensitivity = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/span[2]";
+	
+	public static final String SensitivityLi = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/div/div/div/ul/li";
+	
+	public static final String ReceiveShortMessageNumber = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div/input[2]";
+	
+	public static final String Dialing = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div/input[2]";
+	
+	public static final String CloseOverSpeedAlarm = "p,关闭超速告警";
+	
+	public static final String PowerSavingMode = "p,省电模式";
+	
+	public static final String CloseTheShockAlarm = "p,关闭震动报警";
+	
+	public static final String CloseLowElectricAlarm = "P,关闭低电告警";
+	
+	public static final String Withdrawing = "p,撤防";
+	
+	public static final String GetPhoneNunber = "p,电话获取";
+	
+	public static final String CustomInstruction = "x,/html/body/div[3]/div[2]/div[2]/div[4]/div/form/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div/div[1]/input[2]";
+	/**
+	 * 设备指令
+	 * @throws InterruptedException
+	 */
+	public void deviceInstruction() throws InterruptedException{
 		
+		super.clickElement(DeviceInstruction);
+		Thread.sleep(2000);
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		List<WebElement> elements = super.getElements(InstructionTypeLi);
 		
+		int size = elements.size();
+		Thread.sleep(2000);
+		elements.get(0).click();
+		Thread.sleep(2000);
+		super.clickElement(TheWayOfReporting);
+		Thread.sleep(2000);
+		super.clickElement(PlatformAndSMS);
+		Thread.sleep(2000);	
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);	
+		super.clickElement(InstructionSendEnsure);	
+		Thread.sleep(2000);	
 		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(1).click();
+		Thread.sleep(2000);
+		super.operateInputElement(SOSPhoneNumber1, "10086");
+		Thread.sleep(2000);
+		super.operateInputElement(SOSPhoneNumber2, "10010");
+		Thread.sleep(2000);
+		super.operateInputElement(SOSPhoneNumber3, "10000");
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(DeleteSOSPhoneNumber);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
 		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(2).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(CloseLowElectricAlarm);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
 		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(3).click();
+		Thread.sleep(2000);
+		super.clickElement(Sensitivity);
+		Thread.sleep(2000);
+		List<WebElement> eles = super.getElements(SensitivityLi);
+		
+		for (WebElement webElement : eles) {
+			
+			webElement.click();
+			Thread.sleep(2000);
+			super.clickElement(Sensitivity);
+			Thread.sleep(2000);
+		}
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(4).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(Withdrawing);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(5).click();
+		Thread.sleep(2000);
+		super.clickElement(TheWayOfReporting);
+		Thread.sleep(2000);
+		List<WebElement> ele1s = super.getElements(TheWayOfReportingLi);
+		Thread.sleep(2000);
+		for (WebElement webElement : ele1s) {
+			Thread.sleep(2000);
+			webElement.click();
+			Thread.sleep(2000);
+			super.clickElement(TheWayOfReporting);
+			Thread.sleep(2000);
+		}
+		
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(6).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(7).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(8).click();
+		Thread.sleep(2000);
+		super.operateInputElement(ReceiveShortMessageNumber, "5698522");
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(GetPhoneNunber);
+		Thread.sleep(2000);
+		super.operateInputElement(Dialing, "78984565");
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(9).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(CloseOverSpeedAlarm);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(10).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(PowerSavingMode);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(11).click();
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		super.clickElement(CloseTheShockAlarm);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendBtn);
+		Thread.sleep(2000);
+		super.clickElement(InstructionSendEnsure);
+		Thread.sleep(2000);
+		
+		super.clickElement(InstructionType);
+		Thread.sleep(2000);
+		elements.get(12).click();
+		Thread.sleep(2000);
+		super.operateInputElement(CustomInstruction, "国际金融");
+		Thread.sleep(2000);
 	}
 	
 	
@@ -396,7 +639,7 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 		System.out.println(infos);
 		return infos;
 	}
-
+	//查看
 	public List<String> clickLookAt() throws InterruptedException {
 
 		String currentHandle = super.getCurrentWindowHandle();
@@ -542,5 +785,62 @@ public class GlobalSearchDeviceDetailsPage extends AutomateDriver {
 		Thread.sleep(2000);
 		return imei;
 	}
-
+	
+	/**客户搜索
+	 * CustomerSearch
+	 */
+	public static final String CustomerSearchButton = "x,/html/body/div[1]/div[1]/div[1]/div/button[1]";
+	
+	public static final String CustomerSearchTr = "complex_user_tbody";
+	
+	public static final String CustomerSearchLi = "complex_paging_user";
+	
+	public static final String CustomerExport = "export_btn";
+	
+	public static final String ToConsole = "x,/html/body/div[2]/div[1]/table/tbody/tr[1]/td[7]/a[1]";
+	
+	public static final String ToDetails = "x,/html/body/div[2]/div[1]/table/tbody/tr[1]/td[7]/a[2]";
+	
+	public static final String ResetPassword = "x,/html/body/div[2]/div[1]/table/tbody/tr[1]/td[7]/a[3]";
+	
+	public static final String ToLookAt = "x,/html/body/div[2]/div[1]/table/tbody/tr[1]/td[7]/a[4]";
+	
+	public static final String CustomerInfo = "x,/html/body/div[2]/div[2]/div[1]/ul/li[2]/a";
+	
+	public static final String DeviceSale = "x,/html/body/div[2]/div[2]/div[1]/ul/li[3]/a";
+	
+	public static final String NewAddLowerUser = "x,/html/body/div[2]/div[2]/div[1]/ul/li[4]/a";
+	
+	public static final String TransCustomer = "x,/html/body/div[2]/div[2]/div[1]/ul/li[5]/a";
+	
+	public static final String CustomerName = "n,nickName";
+	
+	public static final String CustomerAccount = "n,account";
+	
+	public static final String UpdateUserBtn = "complex_updateUserBtn";
+	
+	public static final String Password = "password";
+	
+	public static final String APPRegistereUser = "x,/html/body/div[1]/div[1]/div[1]/div/button[2]";
+	
+	public static final String APPUserTr = "complex_mobileUser_tbody";
+	
+	public static final String APPUserLi = "complex_paging_mobileUser";
+	
+	public static final String APPUserNoData = "complex_mobileUser_table_nodata";
+	
+	public static final String ResetPasswordEnsure = "p,确定";
+	
+	public static final String ResetPasswordCancel = "p,取消";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

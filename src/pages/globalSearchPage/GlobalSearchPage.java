@@ -47,6 +47,35 @@ public class GlobalSearchPage extends AutomateDriver{
 	
 	public static final String CloseBaseQuery = "x,/html/body/div[13]/span[1]/a";
 	
+	
+	public static final String AdvancedSearchUserNameInput = "complex_search_userName";
+	
+	public static final String Complex_globalSearch_input = "complex_globalSearch_input";
+	
+	public static final String Complex_globalSearch_btn = "complex_globalSearch_btn";
+	
+	public static final String OptionDropdown = "x,/html/body/div[1]/div[2]/form/div[3]/div/div/span[3]";
+	
+	public static final String OptionDropdownLi = "x,/html/body/div[1]/div[2]/form/div[3]/div/div/div/ul/li";
+	
+	public static final String OptionInput = "n,keyword";
+	
+	public static final String DateType = "x,/html/body/div[1]/div[2]/form/div[4]/div/div/span[2]";
+	
+	public static final String DateTypeLi = "/html/body/div[1]/div[2]/form/div[4]/div/div/div/ul/li";
+	
+	public static final String AdvancedSearchSelectStartTime = "advancedSearchSelectStartTime";
+	
+	public static final String TimeLimit = "x,/html/body/div[1]/div[2]/form/div[4]/label[2]/div/ins";
+	//欠费
+	public static final String Arrearage = "x,/html/body/div[1]/div[2]/form/div[5]/label[2]/div/ins";
+	
+	public static final String NotActive = "x,/html/body/div[1]/div[2]/form/div[5]/label[3]/div/ins";
+	
+	public static final String SearchButton = "x,/html/body/div[1]/div[2]/form/div[6]/button[1]";
+	
+	public static final String Reset = "x,/html/body/div[1]/div[2]/form/div[6]/button[2]";
+	
 	/**
 	 * 记录的条数
 	 * @param selector_ul
