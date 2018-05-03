@@ -62,7 +62,7 @@ public class StatisticalReportPage extends AutomateDriver {
 		
 	}
 	
-	public void clickStatisticalReportSubmenu(String selector) {
+	public void clickStatisticalReportSubmenu(String selector) throws InterruptedException {
 		
 		super.clickElement(selector);
 	}
@@ -91,8 +91,9 @@ public class StatisticalReportPage extends AutomateDriver {
 
 	/**
 	 * 导出
+	 * @throws InterruptedException 
 	 */
-	public void Export() {
+	public void Export() throws InterruptedException {
 
 		super.clickElement(Export);
 

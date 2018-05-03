@@ -56,13 +56,13 @@ public class AccountCenterFictitiousAccountManagerPage extends AutomateDriver {
 		}
 	}
 	//鐐瑰嚮铏氭嫙璐﹀彿娣诲姞鎸夐挳
-	public void clickAddFicAccountBtn(){
+	public void clickAddFicAccountBtn() throws InterruptedException{
 		super.clickElement("x,html/body/div[1]/div[2]/div[1]/form/div/button");
 		super.switchToDefaultContent();
 		super.explicitWait(".//*[@id='layui-layer1']/div[1]");
 	}
 	
-	public void thirdClickAddAccountBtn(){
+	public void thirdClickAddAccountBtn() throws InterruptedException{
 		super.clickElement("x,html/body/div[1]/div[2]/div[1]/form/div/button");
 		super.switchToDefaultContent();
 		super.explicitWait(".//*[@id='layui-layer3']/div[1]");
@@ -100,7 +100,7 @@ public class AccountCenterFictitiousAccountManagerPage extends AutomateDriver {
 		}
 	}
 	//娣诲姞铏氭嫙璐﹀彿鍔熻兘
-	public void addFicAccount(String FicAccount,String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns){
+	public void addFicAccount(String FicAccount,String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns) throws InterruptedException{
 		super.operateInputElement("x,.//*[@id='fictitiousAccountForm']/div[1]/div/input", FicAccount);
 		super.operateInputElement("fictitious_password", FicAccountPassword);
 		super.operateInputElement("password", ReFicAccountPassword);
@@ -116,7 +116,7 @@ public class AccountCenterFictitiousAccountManagerPage extends AutomateDriver {
 		}
 		super.clickElement("x,.//*[@id='layui-layer3']/div[3]/a[1]");
 		}
-	public void addFicAccountSuccess(String FicAccount,String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns){
+	public void addFicAccountSuccess(String FicAccount,String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns) throws InterruptedException{
 		this.addFicAccount(FicAccount, FicAccountPassword, ReFicAccountPassword, EditData, SendIns);
 	}
 	//娓呴櫎娣诲姞妗嗕俊鎭�
@@ -202,14 +202,14 @@ public class AccountCenterFictitiousAccountManagerPage extends AutomateDriver {
 		return getFicAccountAccount;
 	}
 	//鐐瑰嚮缂栬緫铏氭嫙璐﹀彿
-	public void clickEditFicAccountBtn(){
+	public void clickEditFicAccountBtn() throws InterruptedException{
 		
 		super.clickElement("x,.//*[@id='fictitiousAccount_tbody']/tr[1]/td[4]/a[1]");
 		super.switchToDefaultContent();
 		//super.explicitWait(".//*[@id='layui-layer1']");
 	}
 	//缂栬緫铏氭嫙璐﹀彿
-	public void editFicAccount(String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns){
+	public void editFicAccount(String FicAccountPassword,String ReFicAccountPassword,String EditData,String SendIns) throws InterruptedException{
 		
 		super.operateInputElement("fictitious_password", FicAccountPassword);
 		super.operateInputElement("password", ReFicAccountPassword);
@@ -253,20 +253,20 @@ public class AccountCenterFictitiousAccountManagerPage extends AutomateDriver {
 	public void switchToFicAccountPage(){
 		super.switchToFrame("fictitiousaccountFrame");
 	}
-	public void clickFicAccountDelBtn(){
+	public void clickFicAccountDelBtn() throws InterruptedException{
 		super.clickElement("x,.//*[@id='fictitiousAccount_tbody']/tr[1]/td[2]");
 		super.explicitWait(".//*[@id='layui-layer1']");
 	}
 	
-	public void canlceDelFicAccount(){
+	public void canlceDelFicAccount() throws InterruptedException{
 		super.clickElement("x,.//*[@id='layui-layer1']/span[1]/a");
 		super.explicitWait("html/body/div[1]/div[1]/div/b");
 	}
-	public void canlceDelFicAccountBtn(){
+	public void canlceDelFicAccountBtn() throws InterruptedException{
 		super.clickElement("x,.//*[@id='layui-layer2']/div[3]/a[2]");
 		super.explicitWait("html/body/div[1]/div[1]/div/b");
 	}
-	public void clickDelFicAccountBtn(){
+	public void clickDelFicAccountBtn() throws InterruptedException{
 		super.clickElement("x,.//*[@id='layui-layer3']/div[3]/a[1]");
 		super.explicitWait("html/body/div[1]/div[1]/div/b");
 	}

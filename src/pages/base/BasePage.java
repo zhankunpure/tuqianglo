@@ -20,8 +20,9 @@ public class BasePage extends AutomateDriver {
 	}
 	/**
 	 * µÇÂ¼
+	 * @throws InterruptedException 
 	 */
-	public void login(){
+	public void login() throws InterruptedException{
 		super.navigateToPage(comd.baseUrl()+"/");
 		super.explicitWait("//*[@id='logins']");
 		
@@ -41,8 +42,9 @@ public class BasePage extends AutomateDriver {
 	}
 	/**
 	 * µã»÷µÇÂ¼°´Å¥
+	 * @throws InterruptedException 
 	 */
-	public void clickLoginBtn() {
+	public void clickLoginBtn() throws InterruptedException {
 		
 		super.clickElement("logins");
 		

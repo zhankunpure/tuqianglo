@@ -85,8 +85,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * //今天查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportTodaySelect(String imei) {
+	public void mileageReportTodaySelect(String imei) throws InterruptedException {
 		//今天查询里程报表
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -110,8 +111,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * 昨天查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportYestodaySelect(String imei) {
+	public void mileageReportYestodaySelect(String imei) throws InterruptedException {
 		
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -135,8 +137,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * 本周查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportThisWeekSelect(String imei) {
+	public void mileageReportThisWeekSelect(String imei) throws InterruptedException {
 		
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -162,8 +165,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * 上周查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportLastWeekSelect(String imei) {
+	public void mileageReportLastWeekSelect(String imei) throws InterruptedException {
 		
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -194,8 +198,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * 本月查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportThisMonthSelect(String imei) {
+	public void mileageReportThisMonthSelect(String imei) throws InterruptedException {
 		
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -226,8 +231,9 @@ public class MileageReportPage extends AutomateDriver{
 	/**
 	 * 里程报表查询
 	 * 上月查询里程报表
+	 * @throws InterruptedException 
 	 */
-	public void mileageReportLastMonthSelect(String imei) {
+	public void mileageReportLastMonthSelect(String imei) throws InterruptedException {
 		
 		super.clickElement(mileageReportDefaltDateSelect);
 		
@@ -346,8 +352,9 @@ public class MileageReportPage extends AutomateDriver{
 
 	/**
 	 * 里程报表重新计算油耗
+	 * @throws InterruptedException 
 	 */
-	public void recalculateFuel(String value) {
+	public void recalculateFuel(String value) throws InterruptedException {
 		
 		super.operateInputElement(mileageReportFuelValue, value);
 		

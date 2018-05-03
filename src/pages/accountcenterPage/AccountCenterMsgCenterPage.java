@@ -85,7 +85,7 @@ public class AccountCenterMsgCenterPage extends AutomateDriver {
 		return title;
 	}
 	//勾选第一个未读消息设为已读
-	public void clickFirstCheckboxUnreadAndSetRead(){
+	public void clickFirstCheckboxUnreadAndSetRead() throws InterruptedException{
 		//*[@id="msg_tbody"]/tr[1]/td[1]/label/div/input
 		super.clickCheckbox("x,//*[@id='msg_tbody']/tr[1]/td[1]/label/div/input");
 		super.checkboxIsSelector("x,//*[@id='msg_tbody']/tr[1]/td[1]/label/div/input");
@@ -113,7 +113,7 @@ public class AccountCenterMsgCenterPage extends AutomateDriver {
 		return StatusListText;
 	}
 	//点击全选
-	public void clickSetreadedToAll(){
+	public void clickSetreadedToAll() throws InterruptedException{
 		super.clickElement("x,html/body/div[1]/div[2]/div[1]/form/div[1]/button[2]");
 		
 	}

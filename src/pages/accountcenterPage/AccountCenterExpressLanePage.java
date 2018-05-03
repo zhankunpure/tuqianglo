@@ -77,8 +77,9 @@ public class AccountCenterExpressLanePage extends AutomateDriver {
 	 * 点击添加模块
 	 * 
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void clickAddModula() {
+	public void clickAddModula() throws InterruptedException {
 	//	/html/body/div[9]/div[3]/div/a
 		super.clickElement("p,添加模块 ");
 	}

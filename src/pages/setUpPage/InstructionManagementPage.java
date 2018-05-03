@@ -35,7 +35,7 @@ public class InstructionManagementPage extends AutomateDriver {
 	 */
 	public static final String TemplateList = "templateList_li";
 
-	public void clickWorkPatternTemplateManagement() {
+	public void clickWorkPatternTemplateManagement() throws InterruptedException {
 
 		super.clickElement(TemplateList);
 	}
@@ -47,8 +47,9 @@ public class InstructionManagementPage extends AutomateDriver {
 
 	/**
 	 * 点击创建模板
+	 * @throws InterruptedException 
 	 */
-	public void clickCreateInsModel() {
+	public void clickCreateInsModel() throws InterruptedException {
 
 		super.clickElement(CreateInstructionRules);
 	}

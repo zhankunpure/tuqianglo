@@ -165,7 +165,7 @@ public class GlobalSearchPage extends AutomateDriver{
 		
 	}
 	
-	public void clickDeviceDetail(){
+	public void clickDeviceDetail() throws InterruptedException{
 		
 		super.clickElement(DeviceDetail);
 		try {

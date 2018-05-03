@@ -168,10 +168,12 @@ public class AutomateDriver {
 	/**
 	 * µã»÷ÔªËØ
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void clickElement(String selector) {
+	public void clickElement(String selector) throws InterruptedException {
 		WebElement element = this.getElement(selector);
 		element.click();
+		Thread.sleep(2000);
 	}
 
 	public String getText(String selector) {
@@ -452,4 +454,5 @@ public class AutomateDriver {
 		
 		dr.navigate().refresh();
 	}
+	
 }

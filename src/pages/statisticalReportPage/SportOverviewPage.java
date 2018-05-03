@@ -113,8 +113,9 @@ public class SportOverviewPage extends AutomateDriver{
 	
 	/**
 	 * 运动总览导出
+	 * @throws InterruptedException 
 	 */
-	public void sportOverviewExport() {
+	public void sportOverviewExport() throws InterruptedException {
 
 		super.clickElement(Export);
 

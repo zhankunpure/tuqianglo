@@ -20,7 +20,7 @@ public class AccountCenterOrderManagerPage extends AutomateDriver {
 		page = new BasePage(dr);
 	}
 	
-	public void clickOrderManager() {
+	public void clickOrderManager() throws InterruptedException {
 		
 		super.waitForElementToLoad(10, "ordermanagerBtn");
 		
@@ -75,7 +75,7 @@ public class AccountCenterOrderManagerPage extends AutomateDriver {
 		Thread.sleep(2000);
 	}
 	
-	public void orderInfoSearch() {
+	public void orderInfoSearch() throws InterruptedException {
 		
 		super.clickElement("x,//*[@id=\"queryorderinfo\"]");
 	}

@@ -119,8 +119,9 @@ public class ParkingReportPage extends AutomateDriver{
 
 	/**
 	 * 停车未熄火报表导出
+	 * @throws InterruptedException 
 	 */
-	public void parkingReportExport() {
+	public void parkingReportExport() throws InterruptedException {
 
 		super.clickElement(StatisticalReportPage.Export);
 

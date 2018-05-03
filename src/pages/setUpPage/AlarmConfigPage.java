@@ -27,8 +27,9 @@ public class AlarmConfigPage extends AutomateDriver {
 
 	/**
 	 * 进入告警设置页面
+	 * @throws InterruptedException 
 	 */
-	public void enterAlarmConfigPage() {
+	public void enterAlarmConfigPage() throws InterruptedException {
 
 		super.floatElement("x,//*[@id='systemSetting']");
 		super.clickElement("p,告警设置");
@@ -37,19 +38,19 @@ public class AlarmConfigPage extends AutomateDriver {
 	}
 
 	// 点击告警基本设置
-	public void clickAlarmBasicSet() {
+	public void clickAlarmBasicSet() throws InterruptedException {
 
 		super.clickElement("alarmBasicSet");
 	}
 
 	// 点击告警推送设置
-	public void clickAlarmPushSet() {
+	public void clickAlarmPushSet() throws InterruptedException {
 
 		super.clickElement("alarmPushSet");
 	}
 
 	// 点击短信电话告警设置
-	public void clickvsAlarmSetList() {
+	public void clickvsAlarmSetList() throws InterruptedException {
 
 		super.clickElement("vsAlarmSetList");
 	}
@@ -82,8 +83,9 @@ public class AlarmConfigPage extends AutomateDriver {
 	 * "x,//*[@id='lowerLevelFlag']"
 	 * 
 	 * @param selector
+	 * @throws InterruptedException 
 	 */
-	public void offlineTimeAndStayTimeAndLowerLevelFlagSelect(String selector) {
+	public void offlineTimeAndStayTimeAndLowerLevelFlagSelect(String selector) throws InterruptedException {
 
 		if (super.checkboxIsSelector(selector) == false) {
 
@@ -103,7 +105,7 @@ public class AlarmConfigPage extends AutomateDriver {
 	}
 
 	// 保存告警设置
-	public void saveAlarmSet() {
+	public void saveAlarmSet() throws InterruptedException {
 
 		super.clickElement("saveBtn");
 
@@ -156,8 +158,9 @@ public class AlarmConfigPage extends AutomateDriver {
 
 	/**
 	 * 全部设置邮件发送
+	 * @throws InterruptedException 
 	 */
-	public void allSetMailSend(String value) {
+	public void allSetMailSend(String value) throws InterruptedException {
 		// *[@id="alarmEmailModal"]/div/div/ul/li/input
 		// *[@id="alarmEmailModal"]/div/div/ul/li[2]/input
 		super.clickElement("p,全部设置邮件发送");
@@ -169,7 +172,7 @@ public class AlarmConfigPage extends AutomateDriver {
 	// 添加邮件
 	int i = 1;
 
-	public void addSetMail() {
+	public void addSetMail() throws InterruptedException {
 		// *[@id="alarmEmailModal"]/div/div/ul/li/button
 		// *[@id="alarmEmailModal"]/div/div/ul/li[2]/button
 		String path = "x,//*[@id=\"alarmEmailModal\"]/div/div/ul/li/button";
@@ -184,7 +187,7 @@ public class AlarmConfigPage extends AutomateDriver {
 	String mail_input = "x,//*[@id=\"alarmEmailModal\"]/div/div/ul/li[1]/input";
 
 	// 减少邮件
-	public void reduceSetMail() {
+	public void reduceSetMail() throws InterruptedException {
 		// *[@id="alarmEmailModal"]/div/div/ul/li[2]/button
 
 		super.clickElement(reduce_path);
@@ -200,27 +203,27 @@ public class AlarmConfigPage extends AutomateDriver {
 	}
 
 	// 关闭告警邮件推送模式
-	public void closeAlarmEmailModal() {
+	public void closeAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer3\"]/span[1]/a");
 	}
 
 	// 保存告警邮件推送模式
-	public void saveAlarmEmailModal() {
+	public void saveAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer3\"]/div[3]/a[1]");
 
 	}
 
 	// 取消告警邮件推送模式
-	public void cancelAlarmEmailModal() {
+	public void cancelAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer3\"]/div[3]/a[2]");
 
 	}
 
 	// 单个设置邮件
-	public void clickSingleSetMail() {
+	public void clickSingleSetMail() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"alarm_appSet_tbody\"]/tr[1]/td[4]/a");
 
@@ -230,8 +233,9 @@ public class AlarmConfigPage extends AutomateDriver {
 	 * 单个设置邮箱并保存
 	 * 
 	 * @param value
+	 * @throws InterruptedException 
 	 */
-	public void SingleSetMail(String value) {
+	public void SingleSetMail(String value) throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"alarm_appSet_tbody\"]/tr[1]/td[4]/a");
 
@@ -243,20 +247,20 @@ public class AlarmConfigPage extends AutomateDriver {
 	}
 
 	// 关闭单个告警邮件推送模式
-	public void closeSingleAlarmEmailModal() {
+	public void closeSingleAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer4\"]/span[1]/a");
 	}
 
 	// 保存单个告警邮件推送模式
-	public void saveSingleAlarmEmailModal() {
+	public void saveSingleAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer4\"]/div[3]/a[1]");
 
 	}
 
 	// 取消单个告警邮件推送模式
-	public void canceSinglelAlarmEmailModal() {
+	public void canceSinglelAlarmEmailModal() throws InterruptedException {
 
 		super.clickElement("x,//*[@id=\"layui-layer4\"]/div[3]/a[2]");
 
@@ -287,15 +291,16 @@ public class AlarmConfigPage extends AutomateDriver {
 	/**
 	 * 短信电话告警设置
 	 * 默认搜索告警设置
+	 * @throws InterruptedException 
 	 */
-	public void alarmDefaultSetSearch() {
+	public void alarmDefaultSetSearch() throws InterruptedException {
 
 		super.clickElement("qryBtn");
 
 	}
 
 	// 清空
-	public void clearInputContent() {
+	public void clearInputContent() throws InterruptedException {
 
 		super.clickElement("clearBtn");
 	}
@@ -386,9 +391,10 @@ public class AlarmConfigPage extends AutomateDriver {
 	 * 编辑告警设置
 	 * @param key1
 	 * @param key2
+	 * @throws InterruptedException 
 	 */
 	 
-	public void editorAlarmSet(String key1,String key2) {
+	public void editorAlarmSet(String key1,String key2) throws InterruptedException {
 		//点击编辑
 		super.clickElement("x,//*[@id=\"alarm_body\"]/tr[1]/td[7]/a[1]");
 		//切入编辑表单
@@ -416,8 +422,9 @@ public class AlarmConfigPage extends AutomateDriver {
 	/**
 	 * 短信电话告警设置
 	 * 编辑重置
+	 * @throws InterruptedException 
 	 */
-	public void editorAlarmReset() {
+	public void editorAlarmReset() throws InterruptedException {
 		//点击编辑
 				super.clickElement("x,//*[@id=\"alarm_body\"]/tr[1]/td[7]/a[1]");
 				//切入编辑表单
@@ -445,8 +452,9 @@ public class AlarmConfigPage extends AutomateDriver {
 	/**
 	 * /html/body/div/div[2]/div[3]/table/tbody/tr[1]/td[5]/a
 	 * 删除告警设置
+	 * @throws InterruptedException 
 	 */
-	public void deleteAlarmSet() {
+	public void deleteAlarmSet() throws InterruptedException {
 		//点击删除
 		super.clickElement("x,//*[@id=\"alarm_body\"]/tr[1]/td[7]/a[2]");
 		//点击取消
@@ -464,8 +472,9 @@ public class AlarmConfigPage extends AutomateDriver {
 	/**
 	 * 新增告警设置
 	 * 保存并继续新增 super.clickElement("p,保存并继续新增");
+	 * @throws InterruptedException 
 	 */
-	public void addAlarmSetup(String key1,String key2,String key3) {
+	public void addAlarmSetup(String key1,String key2,String key3) throws InterruptedException {
 		//切入短信电话告警设置表单
 		super.switch_to_frame("x,//*[@id=\"vsAlarmSetListFrame\"]");
 		//点击新增告警设置

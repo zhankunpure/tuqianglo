@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.setUpPage.TestCase7002CreateInsCommonPattern">
+      <class name="testcases.devicemanage.NewTest">
         <methods>
-          <include name="afterTest"/>
-          <include name="CreateInsCommonPattern"/>
+          <include name="f"/>
           <include name="beforeTest"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- testcases.setUpPage.TestCase7002CreateInsCommonPattern -->
+      </class> <!-- testcases.devicemanage.NewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

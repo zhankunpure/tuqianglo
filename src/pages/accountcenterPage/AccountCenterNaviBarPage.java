@@ -136,10 +136,10 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
     	super.floatElement("x,/html/body/div[1]/header/div/div[2]/div[2]/div[2]/span/a");
     	Thread.sleep(2000);
     }
-    public void click_mondify_info(){
+    public void click_mondify_info() throws InterruptedException{
     	super.clickElement("p,修改资料");
     }
-    public void click_mondify_password(){
+    public void click_mondify_password() throws InterruptedException{
     	super.clickElement("p,修改密码");
     }
     /**
@@ -193,21 +193,21 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
     public String get_title_mondify_user_passwd(){
     	return super.getText("x,//*[@id='layui-layer1']/div[1]");
     }
-    public boolean close_mondify_user_passwd(){
+    public boolean close_mondify_user_passwd() throws InterruptedException{
     	super.clickElement("c,layui-layer-ico.layui-layer-close.layui-layer-close1");
     	return super.isElementExist("x,//*[@id='layui-layer1']/div[1]");
     }
-    public boolean cancle_mondify_user_passwd(){
+    public boolean cancle_mondify_user_passwd() throws InterruptedException{
     	super.clickElement("c,layui-layer-btn1");
     	return super.isElementExist("x,//*[@id='layui-layer1']/div[1]");
     }
-    public void click_confim_mondify_user_passwd(){
+    public void click_confim_mondify_user_passwd() throws InterruptedException{
     	super.clickElement("c,layui-layer-btn0");
     }
     public String get_Mondify_user_passwd_content(){
     	return super.getText("c,layui-layer-content");
     }
-    public void save_mondify_user_passwd(){
+    public void save_mondify_user_passwd() throws InterruptedException{
     	super.clickElement("c,layui-layer-btn0");
     }
     public String get_Mondify_OldPwd_Error(){
@@ -227,14 +227,15 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
      */
     public void click_account_center() throws InterruptedException {
     	super.waitForElementToLoad(10, "accountCenter");
-    	super.clickElement("x,//*[@id=\"accountCenter\"]");
+    	super.clickElement("accountCenter");
     	
     }
     
     //点击设备管理
-    public void click_DeviceManage() {
+    public void click_DeviceManage() throws InterruptedException {
     	super.waitForElementToLoad(10, "device");
-    	super.clickElement("x,//*[@id='device']");
+    	super.clickElement("device");
+    	Thread.sleep(2000);
     }
     
     //点击客户管理
@@ -289,17 +290,17 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
     }
     
    //点击购买充值卡
-    public void clickBuyCard() {
+    public void clickBuyCard() throws InterruptedException {
     	super.waitForElementToLoad(10, "buycardbtn");
     	super.clickElement("buycardbtn");
     }
    //点击设备充值
-    public void clickRecharge() {
+    public void clickRecharge() throws InterruptedException {
     	super.waitForElementToLoad(10, "rechargebtn");
     	super.clickElement("rechargebtn");
     }
    //点击充值卡管理
-    public void clickRechargeManager() {
+    public void clickRechargeManager() throws InterruptedException {
     	super.waitForElementToLoad(10, "rechargemanagerbtn");
     	super.clickElement("rechargemanagerbtn");
     }

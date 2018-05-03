@@ -52,15 +52,17 @@ public class LoginPage extends AutomateDriver {
 
 	/**
 	 * 点击登录按钮
+	 * @throws InterruptedException 
 	 */
-	public void login_button_click() {
+	public void login_button_click() throws InterruptedException {
 		super.clickElement("logins");
 	}
 
 	/**
 	 * 选中记住我
+	 * @throws InterruptedException 
 	 */
-	public void remember_me() {
+	public void remember_me() throws InterruptedException {
 		super.clickElement("checkbox");
 	}
 
@@ -76,15 +78,17 @@ public class LoginPage extends AutomateDriver {
 
 	/**
 	 * 点击忘记密码
+	 * @throws InterruptedException 
 	 */
-	public void forget_password() {
+	public void forget_password() throws InterruptedException {
 		super.clickElement("x,html/body/div[1]/div/div[3]/span[1]/a[1]");
 	}
 
 	/**
 	 * 我要体验登录
+	 * @throws InterruptedException 
 	 */
-	public void taste_user_login() {
+	public void taste_user_login() throws InterruptedException {
 
 		super.clickElement("x,//a[@title='我要体验']");
 	}
@@ -120,8 +124,9 @@ public class LoginPage extends AutomateDriver {
 
 	/**
 	 * 取消忘记密码窗口
+	 * @throws InterruptedException 
 	 */
-	public void dismiss_forget_password() {
+	public void dismiss_forget_password() throws InterruptedException {
 		super.clickElement("x,//*[@id='RetrievePasswordModal']/div/div/div[3]/button[3]");
 	}
 

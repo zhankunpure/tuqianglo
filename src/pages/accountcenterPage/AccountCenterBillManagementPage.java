@@ -105,12 +105,12 @@ public class AccountCenterBillManagementPage extends AutomateDriver {
 		
 	}
 	
-	public void startTimeSearch(String value) {
+	public void startTimeSearch(String value) throws InterruptedException {
 		super.operateInputElement(BILL_MANAGER_START_TIME, value);
 		
 		super.clickElement(BILL_SEARCH_ELEMENT);
 	}
-	public void endTimeSearch(String value) {
+	public void endTimeSearch(String value) throws InterruptedException {
 		
 		super.operateInputElement(BILL_MANAGER_END_TIME, value);
 		
@@ -118,8 +118,9 @@ public class AccountCenterBillManagementPage extends AutomateDriver {
 	}
 	/**
 	 * 进入账单管理页面
+	 * @throws InterruptedException 
 	 */
-	public void clickBillManagerBtn() {
+	public void clickBillManagerBtn() throws InterruptedException {
 		
 		super.waitForElementToLoad(10, BILL_MANAGER_BTN);
 		
@@ -127,17 +128,17 @@ public class AccountCenterBillManagementPage extends AutomateDriver {
 		
 	}
 	
-	public void exportBill() {
+	public void exportBill() throws InterruptedException {
 		
 		super.clickElement(BILL_EXPORT_ELEMENT);
 	}
 	
-	public void switchList() {
+	public void switchList() throws InterruptedException {
 		
 		super.clickElement(BILL_DIAGRAM_ELEMENT);
 	}
 	
-	public void switchCurve() {
+	public void switchCurve() throws InterruptedException {
 		
 		super.clickElement(BILL_LIST_ELEMENT);
 	}
