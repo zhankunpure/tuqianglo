@@ -572,10 +572,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		}
 	}
 	/**
-	 * 选中发送指令
+	 * 选中全部发送指令
 	 */
 	@Override
-	public void sendInstruction() throws InterruptedException {
+	public void allSendInstruction() throws InterruptedException {
 		
 		super.operateInputElement(TypeShow, "ET200");
 		
@@ -583,7 +583,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		
 		super.clickCheckbox(DeviceSearchButton);
 		
-		super.clickElement(SelectAll);
+		//super.waitForElementToLoad(10, SelectAll);
+		
+		//super.clickElement(SelectAll);
+		this.selectDeviceRecordsInTurn();
 		
 		super.clickElement(AllSendIns);
 		
@@ -593,17 +596,23 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		List<WebElement> elements = super.getElements(InsTypeLi);
 		
 		int size = elements.size();
+		System.out.println(size);
+		
+		for (int i = 0; i <size; i++) {
+			
+			System.out.println(i+":"+elements.get(i).getText());
+		}
 		/**
 		 *点击 SOS号码
 		 */
 		elements.get(0).click();
-		
+		Thread.sleep(2000);
 		super.operateInputElement(Phone1, "10000");
-		
+		Thread.sleep(2000);
 		super.operateInputElement(Phone2, "10010");
-		
+		Thread.sleep(2000);
 		super.operateInputElement(Phone3, "10086");
-		
+		Thread.sleep(2000);
 		super.clickElement(SendIns);
 		
 		System.out.println(super.getText(Dialog));
@@ -623,8 +632,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 *点击 位移报警
 		 */
-		elements.get(1).click();
+		super.clickElement(InsType);
 		
+		elements.get(1).click();
+		Thread.sleep(2000);
 		super.operateInputElement(DisplacementRadius, "200");
 		
 		super.clickElement(DisplacementAlarmUploadType);
@@ -656,8 +667,11 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 *点击 断电报警
 		 */
-		elements.get(2).click();
 		
+		super.clickElement(InsType);
+		
+		elements.get(2).click();
+		Thread.sleep(2000);
 		super.clickElement(PowerOffAlarmUploadType);
 		
 		List<WebElement> element2s = super.getElements(PowerOffAlarmUploadTypeLi);
@@ -687,8 +701,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 *点击低电报警
 		 */
-		elements.get(3).click();
+		super.clickElement(InsType);
 		
+		elements.get(3).click();
+		Thread.sleep(2000);
 		super.clickElement(LowElectricAlarmUploadType);
 		
 		List<WebElement> element3s = super.getElements(LowElectricAlarmUploadTypeLi);
@@ -718,8 +734,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 *点击震动灵敏度
 		 */
-		elements.get(4).click();
+		super.clickElement(InsType);
 		
+		elements.get(4).click();
+		Thread.sleep(2000);
 		super.clickElement(VibrationSensitivity);
 		
 		List<WebElement> element4s = super.getElements(VibrationSensitivityLi);
@@ -741,6 +759,8 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 *点击设防和撤防
 		 */
+		super.clickElement(InsType);
+		
 		elements.get(5).click();
 		Thread.sleep(2000);
 		super.clickElement(SendIns);
@@ -760,8 +780,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 * 设防模式
 		 */
-		elements.get(6).click();
+		super.clickElement(InsType);
 		
+		elements.get(6).click();
+		Thread.sleep(2000);
 		if (!super.getElement(ManualInputMark).isSelected()) {
 			
 			super.clickElement(Manual);
@@ -785,8 +807,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 * 远程控制
 		 */
-		elements.get(7).click();
+		super.clickElement(InsType);
 		
+		elements.get(7).click();
+		Thread.sleep(2000);
 		super.operateInputElement(OilBreakingElectricityPwdInput, "666888");
 		
 		super.clickElement(SendIns);
@@ -808,8 +832,12 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 * 中心号码
 		 */
+		super.clickElement(InsType);
+		
+		//super.clickElement("x,/html/body/div[26]/div[2]/div/div/fieldset[1]/div/form/div/div[2]/div/div[1]/div/div/div/ul/li[9]");
 		elements.get(8).click();
 		
+		Thread.sleep(2000);
 		super.operateInputElement(CenterNumberInput, "12580");
 		
 		super.clickElement(SendIns);
@@ -829,8 +857,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 * 震动报警
 		 */
-		elements.get(9).click();
+		super.clickElement(InsType);
 		
+		elements.get(9).click();
+		Thread.sleep(2000);
 		super.clickElement(ShockAlarmUploadType);
 		
 		List<WebElement> element5s = super.getElements(ShockAlarmUploadTypeLi);
@@ -860,8 +890,10 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		/**
 		 * 自定指令
 		 */
-		elements.get(10).click();
+		super.clickElement(InsType);
 		
+		elements.get(10).click();
+		Thread.sleep(2000);
 		super.operateInputElement(CustomInstruction, "降龙十八掌");
 		
 		super.clickElement(SendIns);
@@ -872,5 +904,9 @@ public class DeviceManagePage extends AutomateDriver implements DeviceManagePage
 		
 		super.clickElement(CloseSendInsModal);
 	}
-
+	
+	public void clickExpirationUser() throws InterruptedException{
+		
+		super.clickElement(ExpirationUser);
+	}
 }

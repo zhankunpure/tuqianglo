@@ -46,6 +46,8 @@ public interface DeviceManagePageInterface {
 	
 	public static final String treeDemo_deviceManage_1_li = "x,//*[@id=\"treeDemo_deviceManage_1_ul\"]/li";
 	
+
+	
 	/**
 	 * 请输入客户名和账号
 	 */
@@ -453,5 +455,5 @@ public interface DeviceManagePageInterface {
 
 	public void DeviceInfoExport() throws InterruptedException;
 	
-	void sendInstruction() throws InterruptedException;
+	void allSendInstruction() throws InterruptedException;
 }

@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.base.BasePage;
+import pages.deviceManagePage.DeviceManageExpirePage;
+import pages.deviceManagePage.DeviceManageExpirePageInterface;
 import pages.deviceManagePage.DeviceManagePage;
 
 public class NewTest {
@@ -16,6 +18,8 @@ public class NewTest {
 	private BasePage page;
 	
 	private DeviceManagePage dmPage;
+	
+	private DeviceManageExpirePage dmePage;
 	
   @Test
   public void f() throws InterruptedException {
@@ -38,7 +42,10 @@ public class NewTest {
 	  
 	 // dmPage.DeviceInfoExport();
 	  
-	  dmPage.sendInstruction();
+	  //dmPage.allSendInstruction();
+	  dmPage.clickExpirationUser();
+	  
+	  dmePage.checkExpirationDevice();
 	  
   }
   @BeforeTest
@@ -49,6 +56,8 @@ public class NewTest {
 	  page = new BasePage(dr);
 	  
 	  dmPage = new DeviceManagePage(dr);
+	  
+	  dmePage = new DeviceManageExpirePage(dr);
 	  
 	  dmPage.max_window();
 	  
