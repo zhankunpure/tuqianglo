@@ -28,9 +28,9 @@ public class BasePage extends AutomateDriver {
 		
 		super.deleteCookie();
 		
-		super.operateInputElement("account", comd.baseUser()[2]);
+		super.operateInputElement("account", comd.baseUser()[0]);
 		
-		super.operateInputElement("password", comd.baseUser()[3]);
+		super.operateInputElement("password", comd.baseUser()[1]);
 		
 		if(super.checkboxIsSelector("x,//*[@id='checkbox']")==false) {
 			super.clickElement("x,//*[@id='checkbox']");

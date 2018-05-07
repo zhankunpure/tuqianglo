@@ -231,7 +231,7 @@ public class AutomateDriver {
 		
 	}
 	/**
-	 * 判断元素是否存在
+	 * 判断元素是否显示
 	 * @param selector
 	 * @return
 	 */
@@ -389,6 +389,15 @@ public class AutomateDriver {
 		if (by=="t"){
 			select.selectByVisibleText(value);
 		}
+	}
+	
+	public Select getSelect(String selector){
+		
+		WebElement element = this.getElement(selector);
+		
+		Select select = new Select(element);
+		
+		return select;
 	}
 	/**
 	 * JS处理

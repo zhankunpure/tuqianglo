@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="432482" started-at="2018-05-04T09:35:01Z" finished-at="2018-05-04T09:42:14Z">
+  <suite name="Default suite" duration-ms="51636" started-at="2018-05-07T11:18:58Z" finished-at="2018-05-07T11:19:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="432482" started-at="2018-05-04T09:35:01Z" finished-at="2018-05-04T09:42:14Z">
-      <class name="testcases.devicemanage.NewTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testcases.devicemanage.NewTest@75489391]" name="beforeTest" is-config="true" duration-ms="4249" started-at="2018-05-04T17:35:02Z" finished-at="2018-05-04T17:35:06Z">
+    <test name="Default test" duration-ms="51636" started-at="2018-05-07T11:18:58Z" finished-at="2018-05-07T11:19:50Z">
+      <class name="testcases.customerManage.NewTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testcases.customerManage.NewTest@14d9c11d]" name="beforeTest" is-config="true" duration-ms="3944" started-at="2018-05-07T19:18:58Z" finished-at="2018-05-07T19:19:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="f()[pri:0, instance:testcases.devicemanage.NewTest@75489391]" name="f" duration-ms="427446" started-at="2018-05-04T17:35:06Z" finished-at="2018-05-04T17:42:13Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:testcases.customerManage.NewTest@14d9c11d]" name="f" duration-ms="47675" started-at="2018-05-07T19:19:02Z" finished-at="2018-05-07T19:19:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testcases.devicemanage.NewTest@75489391]" name="afterTest" is-config="true" duration-ms="737" started-at="2018-05-04T17:42:13Z" finished-at="2018-05-04T17:42:14Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testcases.customerManage.NewTest@14d9c11d]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-05-07T19:19:50Z" finished-at="2018-05-07T19:19:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- testcases.devicemanage.NewTest -->
+      </class> <!-- testcases.customerManage.NewTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
