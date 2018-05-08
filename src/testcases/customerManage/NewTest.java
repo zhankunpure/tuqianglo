@@ -1,5 +1,7 @@
 package testcases.customerManage;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
@@ -8,6 +10,7 @@ import org.testng.annotations.Test;
 
 import pages.accountcenterPage.AccountCenterNaviBarPage;
 import pages.base.BasePage;
+import pages.customerManagePage.AdministratorManagementPage;
 import pages.customerManagePage.RoleManagementPage;
 
 public class NewTest {
@@ -19,6 +22,9 @@ public class NewTest {
 	private AccountCenterNaviBarPage nbPage;
 	
 	private RoleManagementPage rmPage;
+	
+	private AdministratorManagementPage amPage;
+	
   @Test
   public void f() throws InterruptedException {
 	  
@@ -30,9 +36,23 @@ public class NewTest {
 	  
 	  nbPage.switchToWindow(currentHandle);
 	  
-	  rmPage.createRole();
+	 // rmPage.createRole();
 	  
+	  amPage = new AdministratorManagementPage(dr);
+//	  
+//	  String actual1 = amPage.newAddAdministrator();
+//	  System.out.println(actual1);
+//	  assertEquals(actual1, "操作成功", "操作失败");
+//	  
+//	  String actual2 = amPage.removeAdministrator();
+//	  System.out.println(actual2);
+//	  assertEquals(actual2, "操作成功", "操作失败");
+//	  
+	  String actual3 = amPage.editAdministrator();
+	  System.out.println(actual3);
+	  assertEquals(actual3, "操作成功", "操作失败");
   }
+  
   @BeforeTest
   public void beforeTest() {
 	  
@@ -42,16 +62,16 @@ public class NewTest {
 	  
 	  nbPage = new AccountCenterNaviBarPage(dr);
 	  
-	  rmPage = new RoleManagementPage(dr);
+	  //rmPage = new RoleManagementPage(dr);
 	  
-	  rmPage.max_window();
+	  nbPage.max_window();
 	  
   }
   																							
   @AfterTest
   public void afterTest() {
 	  
-	  rmPage.quit_bor();
+	  nbPage.quit_bor();
   }
   														
 }

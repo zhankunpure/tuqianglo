@@ -21,54 +21,62 @@ import org.testng.Assert;
 
 public class AutomateDriver {
 	public WebDriver dr;
-	
-	
 
-//	public AutomateDriver() {
-//		
-//		dr = new FirefoxDriver();
-//	}
+	// public AutomateDriver() {
+	//
+	// dr = new FirefoxDriver();
+	// }
 	public AutomateDriver(WebDriver dr) {
 		this.dr = dr;
 	}
+
 	/**
 	 * 获取当前网址
+	 * 
 	 * @return
 	 */
 	public String getCurrentUrl() {
 		return dr.getCurrentUrl();
 	}
+
 	/**
 	 * 打开访问网址
+	 * 
 	 * @param base_url
 	 * @param url
 	 */
 	public void navigate(String base_url, String url) {
 		dr.get(base_url + url);
 	}
+
 	/**
 	 * 打开网址
+	 * 
 	 * @param url
 	 */
 	public void navigateToPage(String url) {
 		dr.get(url);
 	}
+
 	/**
 	 * 删除Cookies缓存
 	 */
 	public void clearCookies() {
 		dr.manage().deleteAllCookies();
 	}
+
 	/**
 	 * 清除元素内容
+	 * 
 	 * @param selector
 	 */
-	public void clearElementInfo(String selector){
+	public void clearElementInfo(String selector) {
 		this.getElement(selector).clear();
 	}
-	
+
 	/**
 	 * 元素输入
+	 * 
 	 * @param selector
 	 * @param value
 	 */
@@ -76,15 +84,19 @@ public class AutomateDriver {
 		this.getElement(selector).clear();
 		this.getElement(selector).sendKeys(value);
 	}
+
 	/**
 	 * 清除元素内容
+	 * 
 	 * @param selector
 	 */
 	public void clearOperateInputElement(String selector) {
 		this.getElement(selector).clear();
 	}
+
 	/**
 	 * 获取元素
+	 * 
 	 * @param selector
 	 * @return
 	 */
@@ -117,16 +129,17 @@ public class AutomateDriver {
 				} else if (selectBy.equals("n")) {
 					WebElement element = dr.findElement(By.name(selectValue));
 					return element;
-					
+
 				}
 			}
 		}
 		return null;
 
 	}
-	
+
 	/**
 	 * 获取元素集合
+	 * 
 	 * @param selector
 	 * @return
 	 */
@@ -164,11 +177,12 @@ public class AutomateDriver {
 		return null;
 
 	}
-	
+
 	/**
 	 * 点击元素
+	 * 
 	 * @param selector
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public void clickElement(String selector) throws InterruptedException {
 		WebElement element = this.getElement(selector);
@@ -184,6 +198,7 @@ public class AutomateDriver {
 
 	/**
 	 * 鼠标悬浮
+	 * 
 	 * @param selector
 	 */
 	public void floatElement(String selector) {
@@ -202,36 +217,42 @@ public class AutomateDriver {
 		handles = dr.getWindowHandles();
 		return handles;
 	}
+
 	/**
 	 * 返回原来窗口
+	 * 
 	 * @param handle
 	 */
 	public void getCurrentWindow(String handle) {
-		
+
 		dr.switchTo().window(handle);
 	}
+
 	/**
 	 * 获取新窗口
+	 * 
 	 * @param handle
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public void switchToWindow(String handle) throws InterruptedException {
 		Thread.sleep(5000);
 		Set<String> handles = new HashSet<String>();
 		handles = dr.getWindowHandles();
-		for (String handle1 :handles){
-			if(handle1 != handle){
-				
-//				Thread.sleep(1000);
+		for (String handle1 : handles) {
+			if (handle1 != handle) {
+
+				// Thread.sleep(1000);
 				dr.switchTo().window(handle1);
-			}else {
+			} else {
 				dr.close();
 			}
 		}
-		
+
 	}
+
 	/**
 	 * 判断元素是否显示
+	 * 
 	 * @param selector
 	 * @return
 	 */
@@ -243,27 +264,60 @@ public class AutomateDriver {
 		}
 
 	}
+
 	/**
 	 * 切入表单
+	 * 
 	 * @param selector
 	 */
 	public void switchToFrame(String selector) {
 		dr.switchTo().frame(selector);
 	}
+
 	/**
 	 * 返回原始表单
+	 * 
 	 * @param selector
 	 */
 	public void switchToDefaultContent() {
 		dr.switchTo().defaultContent();
 	}
+
 	/**
 	 * 显性等待
+	 * 
 	 * @param selector
 	 */
 	public void explicitWait(String selector) {
 		WebDriverWait wait = (new WebDriverWait(dr, 10));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selector)));
+
+		if (!selector.contains(",")) {
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.id(selector)));
+
+		} else {
+			String selectBy = selector.split(",")[0];
+			String selectValue = selector.split(",")[1];
+			if (selectBy.equals("s")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(selectValue)));
+
+			} else if (selectBy.equals("x")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(selectValue)));
+
+			} else if (selectBy.equals("l")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText(selectValue)));
+
+			} else if (selectBy.equals("c")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.className(selectValue)));
+
+			} else if (selectBy.equals("p")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.partialLinkText(selectValue)));
+
+			} else if (selectBy.equals("n")) {
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.name(selectValue)));
+
+			}
+		}
+
 	}
 
 	public Set<Cookie> getCookies() {
@@ -275,21 +329,24 @@ public class AutomateDriver {
 		dr.manage().addCookie(cookie);
 		return cookie;
 	}
+
 	/**
 	 * 关闭浏览器窗口
 	 */
 	public void close() {
 		dr.close();
 	}
+
 	/**
 	 * 下拉框
+	 * 
 	 * @param selector
 	 * @param value
 	 */
 	public void selectGetElement(String selector, String value) {
 		Select sel = new Select(this.getElement(selector));
 		sel.selectByValue(value);
-		
+
 	}
 
 	public void dissSelectGetElement(String selector, String value) {
@@ -303,128 +360,134 @@ public class AutomateDriver {
 	}
 
 	public boolean checkboxIsSelector(String selector) {
-		if(this.getElement(selector).isSelected()){
+		if (this.getElement(selector).isSelected()) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * 多表单处理
+	 * 
 	 * @param selector
 	 */
-	public void switch_to_frame(String selector){
+	public void switch_to_frame(String selector) {
 		String by;
 		String frameValue;
 		if (selector.contains(",")) {
 			by = selector.split(",")[0];
 			frameValue = selector.split(",")[1];
-			System.out.println("frameValue="+frameValue);
+			System.out.println("frameValue=" + frameValue);
 			WebElement element = dr.findElement(By.xpath(frameValue));
 			dr.switchTo().frame(element);
 		} else {
-			
-			if(selector ==""){
+
+			if (selector == "") {
 				dr.switchTo().defaultContent();
-				
-			}else{
-//				dr.switchTo().parentFrame();
+
+			} else {
+				// dr.switchTo().parentFrame();
 				dr.switchTo().frame(selector);
 			}
 		}
-		
-		
+
 	}
-	
+
 	/**
-	 * 	警示框处理
+	 * 警示框处理
+	 * 
 	 * @param by
 	 */
-	public void switch_alert(String by){
-		//		String[] str = selector.split(",");
-		//		String by = str[0];
-		//		String element = str[1];
-		if(by=="a"){
+	public void switch_alert(String by) {
+		// String[] str = selector.split(",");
+		// String by = str[0];
+		// String element = str[1];
+		if (by == "a") {
 			dr.switchTo().alert().accept();
 		}
-		if(by=="d"){
+		if (by == "d") {
 			dr.switchTo().alert().dismiss();
 		}
-		if(by=="t"){
+		if (by == "t") {
 			dr.switchTo().alert().getText();
 		}
-		//		if (by=="s") {
-		//			dr.switchTo().alert().sendKeys("");
-		//		}	
+		// if (by=="s") {
+		// dr.switchTo().alert().sendKeys("");
+		// }
 	}
-	
+
 	/**
 	 * 窗口最大化
 	 */
 	public void max_window() {
 		dr.manage().window().maximize();
-		
+
 	}
-	
+
 	/**
-	 *  下拉框处理
+	 * 下拉框处理
+	 * 
 	 * @param selector
 	 * @param by
 	 * @param value
 	 */
-	 
-	public void Select(String selector,String by,String value){
-		
+
+	public void Select(String selector, String by, String value) {
+
 		WebElement element = this.getElement(selector);
-		
+
 		Select select = new Select(element);
-		
-		if (by=="i") {
+
+		if (by == "i") {
 			select.selectByIndex(Integer.parseInt(value));
 		}
-		if (by=="v"){
+		if (by == "v") {
 			select.selectByValue(value);
 		}
-		if (by=="t"){
+		if (by == "t") {
 			select.selectByVisibleText(value);
 		}
 	}
-	
-	public Select getSelect(String selector){
-		
+
+	public Select getSelect(String selector) {
+
 		WebElement element = this.getElement(selector);
-		
+
 		Select select = new Select(element);
-		
+
 		return select;
 	}
+
 	/**
 	 * JS处理
+	 * 
 	 * @param selector
 	 * @param js
 	 */
-	public void JavascriptExecutor(String selector,String js){
-		
+	public void JavascriptExecutor(String selector, String js) {
+
 		WebElement element = this.getElement(selector);
-		((JavascriptExecutor)dr).executeScript(js, element);
-		
+		((JavascriptExecutor) dr).executeScript(js, element);
+
 	}
+
 	/**
 	 * 智能等待
+	 * 
 	 * @param timeout
 	 * @param by
 	 */
-	public void waitForElementToLoad(int timeout,final String selector){
+	public void waitForElementToLoad(int timeout, final String selector) {
 		try {
-			new WebDriverWait(dr,timeout).until(new ExpectedCondition<Boolean>() {
+			new WebDriverWait(dr, timeout).until(new ExpectedCondition<Boolean>() {
 
 				@Override
 				public Boolean apply(WebDriver dr) {
 					WebElement element;
 					if (!selector.contains(",")) {
-						 element = dr.findElement(By.id(selector));
-						 return element.isDisplayed();
+						element = dr.findElement(By.id(selector));
+						return element.isDisplayed();
 					} else {
 						String by = selector.split(",")[0];
 						String seleValue = selector.split(",")[1];
@@ -432,36 +495,37 @@ public class AutomateDriver {
 							element = dr.findElement(By.xpath(seleValue));
 							return element.isDisplayed();
 						}
-						
+
 					}
-					return null ;
-					
+					return null;
+
 				}
-			} );
+			});
 		} catch (Exception e) {
-			Assert.fail("超时"+timeout+"秒之后还没找到元素",e);
+			Assert.fail("超时" + timeout + "秒之后还没找到元素", e);
 		}
-		
+
 	}
+
 	/**
 	 * 退出浏览器
 	 */
-	public void quit_bor(){
-		
+	public void quit_bor() {
+
 		dr.quit();
 	}
-	
+
 	public void deleteCookie() {
-		
+
 		dr.manage().deleteAllCookies();
 	}
-	
+
 	/**
 	 * 刷新页面
 	 */
 	public void refresh() {
-		
+
 		dr.navigate().refresh();
 	}
-	
+
 }

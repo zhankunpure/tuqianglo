@@ -24,13 +24,13 @@ public class BasePage extends AutomateDriver {
 	 */
 	public void login() throws InterruptedException{
 		super.navigateToPage(comd.baseUrl()+"/");
-		super.explicitWait("//*[@id='logins']");
+		super.explicitWait("logins");
 		
 		super.deleteCookie();
 		
-		super.operateInputElement("account", comd.baseUser()[0]);
+		super.operateInputElement("account", comd.baseUser()[2]);
 		
-		super.operateInputElement("password", comd.baseUser()[1]);
+		super.operateInputElement("password", comd.baseUser()[3]);
 		
 		if(super.checkboxIsSelector("x,//*[@id='checkbox']")==false) {
 			super.clickElement("x,//*[@id='checkbox']");
@@ -111,7 +111,7 @@ public class BasePage extends AutomateDriver {
 		}else{
 			if(this.thirdLastPageNum1(selector_ul)<10){
 				this.clickLastPage1(selector_ul);
-				super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+				//super.explicitWait("//*[@id='"+selector_ul+"']/ul");
 				int pageNumber=(this.thirdLastPageNum1(selector_ul)-1)*10+this.lastPageListNum1(selector_tr);
 				return pageNumber;
 			}else{
@@ -122,7 +122,7 @@ public class BasePage extends AutomateDriver {
 							this.clickLastPage1(selector_ul);
 							}
 					
-					super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+					//super.explicitWait("//*[@id='"+selector_ul+"']/ul");
 		}
 				int pageNumber=(this.thirdLastPageNum1(selector_ul)-1)*10+this.lastPageListNum1(selector_tr);
 				return pageNumber;
@@ -191,7 +191,7 @@ public class BasePage extends AutomateDriver {
 		}else{
 			if(this.thirdLastPageNum(selector_ul)<10){
 				this.clickLastPage(selector_ul);
-				super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+				
 				int pageNumber=(this.thirdLastPageNum(selector_ul)-1)*10+this.lastPageListNum(selector_tr);
 				return pageNumber;
 			}else{
@@ -203,7 +203,7 @@ public class BasePage extends AutomateDriver {
 							Thread.sleep(2000);
 							}
 					
-					super.explicitWait("//*[@id='"+selector_ul+"']/ul");
+					
 		}
 				int pageNumber=(this.thirdLastPageNum(selector_ul)-1)*10+this.lastPageListNum(selector_tr);
 				return pageNumber;
@@ -212,7 +212,41 @@ public class BasePage extends AutomateDriver {
 
 	}
 	/**
-	 * 获取倒数第三页的页数
+	 * 记录总条数
+	 * @param selector_ul
+	 * @param selector_tr
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public int recordNumber(String PageID,String selector_ul,String selector_tr) throws InterruptedException{
+		if(!super.isElementExist(PageID)){
+			return 0;
+		}else{
+			if(this.thirdLastPageNum(selector_ul)<10){
+				this.ClickLastPage(selector_ul);
+				super.explicitWait(selector_ul);
+				int recordNumber=(this.getThirdLastPageNum(selector_ul)-1)*10+this.getLastPageListNum(selector_tr);
+				return recordNumber;
+			}else{
+				for(int j=0;j<10000;j++){
+					if(this.nextPageStutas(selector_ul).equals("current next")){
+						break;
+						}else{
+							this.ClickLastPage(selector_ul);
+							Thread.sleep(2000);
+							}
+					
+					super.explicitWait(selector_ul);
+		}
+				int recordNumber=(this.getThirdLastPageNum(selector_ul)-1)*10+this.getLastPageListNum(selector_tr);
+				return recordNumber;
+			}
+		}
+		
+	}
+	/**
+	 * 获取倒数第三页的页数        
+	 * "//*[@id='"+selector_ul+"']/ul/li"
 	 * @param selector_ul
 	 * @return
 	 */
@@ -226,7 +260,22 @@ public class BasePage extends AutomateDriver {
 		return i;
 	}
 	/**
-	 * 点击最后一页
+	 * 获取倒数第三页的页数
+	 * selector_ul
+	 * @param selector_ul
+	 * @return
+	 */
+	public int getThirdLastPageNum(String selector_ul){
+		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
+		super.explicitWait(selector_ul);
+		ThirdLastPageLi=super.getElements(selector_ul);
+		System.out.println(ThirdLastPageLi.size());
+		String ThirdLastPageText=ThirdLastPageLi.get(ThirdLastPageLi.size()-3).getText();
+		int i=Integer.parseInt(ThirdLastPageText);
+		return i;
+	}
+	/**
+	 * 点击最后一页    "x,//*[@id='"+selector_ul+"']/ul/li"
 	 * @param selector_ul
 	 * @return 
 	 */
@@ -235,6 +284,19 @@ public class BasePage extends AutomateDriver {
 		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
 		
 		ThirdLastPageLi=super.getElements("x,//*[@id='"+selector_ul+"']/ul/li");
+		
+		ThirdLastPageLi.get(ThirdLastPageLi.size()-3).click();
+		
+	}
+	/**
+	 * 点击最后一页   selector_ul
+	 * @param selector_ul
+	 */
+	public void ClickLastPage(String selector_ul){
+		
+		List<WebElement> ThirdLastPageLi=new ArrayList<WebElement>();
+		
+		ThirdLastPageLi=super.getElements(selector_ul);
 		
 		ThirdLastPageLi.get(ThirdLastPageLi.size()-3).click();
 		
@@ -249,6 +311,37 @@ public class BasePage extends AutomateDriver {
 		LastPageListTr=super.getElements("x,//*[@id='"+selector_tr+"']/tr");
 		int LastPageListNum=LastPageListTr.size();
 		return LastPageListNum;
+		
+	}
+	/**
+	 * 获取最后一页的条数
+	 * @param selector_tr
+	 * @return
+	 */
+	public int getLastPageListNum(String selector_tr){
+		List<WebElement> LastPageListTr=new ArrayList<WebElement>();
+		LastPageListTr=super.getElements(selector_tr);
+		int LastPageListNum=LastPageListTr.size();
+		return LastPageListNum;
+		
+	}
+	/**
+	 * 选中最后一页最后一条记录
+	 * @param selector_tr
+	 * @throws InterruptedException
+	 */
+	public void selectLastPageLastRecord(String selector_ul,String selector_tr) throws InterruptedException{
+		
+		
+			this.ClickLastPage(selector_ul);
+			
+			super.explicitWait(selector_ul);
+			
+			int recordNumber=this.getLastPageListNum(selector_tr);
+			
+			String LastRecordXpath = selector_tr+"["+recordNumber+"]/td/input";
+		
+			super.clickElement(LastRecordXpath);
 		
 	}
 	/**
