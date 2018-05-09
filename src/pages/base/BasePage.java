@@ -222,7 +222,7 @@ public class BasePage extends AutomateDriver {
 		if(!super.isElementExist(PageID)){
 			return 0;
 		}else{
-			if(this.thirdLastPageNum(selector_ul)<10){
+			if(this.getThirdLastPageNum(selector_ul)<10){
 				this.ClickLastPage(selector_ul);
 				super.explicitWait(selector_ul);
 				int recordNumber=(this.getThirdLastPageNum(selector_ul)-1)*10+this.getLastPageListNum(selector_tr);

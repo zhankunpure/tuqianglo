@@ -380,6 +380,7 @@ public class AutomateDriver {
 			frameValue = selector.split(",")[1];
 			System.out.println("frameValue=" + frameValue);
 			WebElement element = dr.findElement(By.xpath(frameValue));
+			System.out.println(element.getTagName());
 			dr.switchTo().frame(element);
 		} else {
 

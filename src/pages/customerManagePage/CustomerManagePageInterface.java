@@ -18,7 +18,7 @@ public interface CustomerManagePageInterface {
 	
 	String CustomerNameInput = "treeDemo_cusTreeKey";
 	
-	String Searchaccount = "searchaccount";
+	String SearchAccount = "searchaccount";
 	
 	String CustomerType = "x,/html/body/div[1]/div[6]/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div[2]/div/div/div/span[2]";
 	
@@ -48,15 +48,14 @@ public interface CustomerManagePageInterface {
 	
 	String treeDemo_1_ul_li = "x,//*[@id=\"treeDemo_1_ul\"]/li";
 	
-	String AllSelect = "x,/html/body/div[1]/div[6]/div[2]/div[1]/div/div/div[2]/div/div[2]/div[3]/div[1]/div[2]/div[2]/table/thead/tr/th[1]/div[1]/input";
 	/**
 	 * 代理商
 	 */
-	String Agent = "x,/html/body/div/div/form/div[2]/div/label[1]/div/ins";
+	String Agent = "x,//*[@id=\"labelDistributor\"]/div/ins";
 	/**
 	 * 机构
 	 */
-	String Mechanism = "x,/html/body/div/div/form/div[2]/div/label[2]/div/ins";
+	String Mechanism = "x,//*[@id=\"labelUser1\"]/div/ins";
 	/**
 	 * 客户名称
 	 */
@@ -88,9 +87,16 @@ public interface CustomerManagePageInterface {
 	/**
 	 * 新增客户 用户名和账户输入框
 	 */
-	String treeDemo2_cusTreeKey = "treeDemo2_cusTreeKey";
+	String treeDemo2_cusTreeKey = "x,/html/body/div/div/form/div/div/div[1]/input";
+	//String treeDemo2_cusTreeKey = "x,//*[@id=\"treeDemo2_cusTreeKey\"]";
 	
-	String treeDemo2_cusTreeSearchBtn = "treeDemo2_cusTreeSearchBtn";
+	String treeDemo2_cusTreeSearchBtn = "x,/html/body/div/div/form/div/div/div[1]/i";
+	//String treeDemo2_cusTreeSearchBtn = "x,//*[@id=\"treeDemo2_cusTreeSearchBtn\"]";
+	
+	String CusSearchDiv = "x,//*[@id=\"treeRoleBox\"]/div[1]/div";
+	
+	String CusSearchLi = "x,/html/body/div/div/form/div/div/div[1]/div/ul/li[1]";
+	//String CusSearchLi = "x,//*[@id=\"treeRoleBox\"]/div[1]/div/ul/li[1]";
 	
 	String treeDemo2_1_ul = "treeDemo2_1_ul";
 	
@@ -98,23 +104,42 @@ public interface CustomerManagePageInterface {
 	
 	String treeDemo2_1_ul_li = "x,//*[@id=\"treeDemo2_1_ul\"]/li";
 	
-	String NewAddCustomerEnsure = "p,保存";
+	String treeDemo2_1_a = "treeDemo2_1_a";
+	
+	String NewAddCustomerSave= "p,保存";
 	
 	String NewAddCustomerCancel = "p,取消";
 	
-	String NewAddCustomerIframe = "x,/html/body/div[6]/div[2]/iframe";
+	String TransCustomerSave= "p,保存";
+	
+	String TransCustomerCancel = "p,取消";
+	
+	String AllSelect = "x,/html/body/div[1]/div[6]/div[2]/div[1]/div/div/div[2]/div/div[2]/div[3]/div[1]/div[2]/div[2]/table/thead/tr/th[1]/div[1]/input";
+	
+	String CustomerManageIframe = "x,//iframe[@scrolling=\"no\"]";
 	
 	String NewAddCustomerDialog = "x,/html/body/div[3]/div";
+	
+	String TransCustomerDialog = "x,/html/body/div[6]/div";
 	
 	String NickNameError = "x,/html/body/div[1]/div/form/div[3]/div/label";
 	
 	String AccountError = "x,/html/body/div[1]/div/form/div[4]/div/label";
 	
 	String PasswordError = "x,/html/body/div[1]/div/form/div[5]/div[1]/div/label";
+	
 	/**
 	 * 角色类型
 	 */
 	String RoleTypesSelect= "userRoleId";
+	
+	String SelectFirstCustomerRecord = "x,//*[@id=\"customertablecontent\"]/tbody/tr/td[1]/input";
+	
+	String CustomerRecordTr = "x,//*[@id=\"customertablecontent\"]/tbody/tr";
+	
+	String CustomerRecordLi =  "x,//*[@id=\"pagingCustomer\"]/ul/li";
+	
+	String PageDivID = "pagingCustomer";
 	
 	String Console = "x,//*[@id=\"customertablecontent\"]/tbody/tr[1]/td[9]/a[1]";
 	
@@ -131,4 +156,8 @@ public interface CustomerManagePageInterface {
 	String DeleteCancel = "p,取消";
 	
 	String Dialog = "x,/html/body/div[8]/div";
+	
+	void newAddCustomer() throws InterruptedException;
+	
+	void BatchTransCustomer() throws InterruptedException;
 }
