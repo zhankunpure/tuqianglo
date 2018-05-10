@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 
+import org.apache.http.cookie.SM;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,20 +35,18 @@ public class NewTest {
   @Test
   public void f() throws InterruptedException {
 	  
-	  page.login();
+	  cmPage.page.login();
 	  
-	  String currentHandle = nbPage.getCurrentWindowHandle();
+	  String currentHandle = cmPage.getCurrentWindowHandle();
 	  
-	  nbPage.click_CustomerManage();
+	  cmPage.nbPage.click_CustomerManage();
 	  
-	  nbPage.switchToWindow(currentHandle);
+	  cmPage.switchToWindow(currentHandle);
 	  
 	 // rmPage.createRole();
 	  
 	  //amPage = new AdministratorManagementPage(dr);
 	  
-	  cmPage = new CustomerManagePage(dr);
-//	  
 //	  String actual1 = amPage.newAddAdministrator();
 //	  System.out.println(actual1);
 //	  assertEquals(actual1, "操作成功", "操作失败");
@@ -60,10 +59,13 @@ public class NewTest {
 //	  System.out.println(actual3);
 //	  assertEquals(actual3, "操作成功", "操作失败");
 	  
-	  //cmPage.newAddCustomer();
-	  
-	  cmPage.BatchTransCustomer();
-	  
+	 // cmPage.newAddCustomer();
+	  //cmPage.resetPassword();
+	  //cmPage.batchTransCustomer();
+	  //cmPage.removeCustomer();
+	  //System.out.println(cmPage.editCustomer());
+	 // System.out.println(cmPage.toConsole());
+	  cmPage.clickCustomerTree();
 //	  List<Integer> recordNumbers = cmPage.customerRecordQuery();
 //	  
 //	  System.out.println("recordNumber:"+recordNumbers);
@@ -74,20 +76,21 @@ public class NewTest {
 	  
 	  dr = new FirefoxDriver();
 	  
-	  page = new BasePage(dr);
+	  cmPage = new CustomerManagePage(dr);
+	 // page = new BasePage(dr);
 	  
-	  nbPage = new AccountCenterNaviBarPage(dr);
+	 // nbPage = new AccountCenterNaviBarPage(dr);
 	  
 	  //rmPage = new RoleManagementPage(dr);
 	  
-	  nbPage.max_window();
+	  cmPage.max_window();
 	  
   }
   																							
   @AfterTest
   public void afterTest() {
 	  
-	  nbPage.quit_bor();
+	  cmPage.quit_bor();
   }
   														
 }

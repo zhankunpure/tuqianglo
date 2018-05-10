@@ -15,6 +15,8 @@ import automatedriver.AutomateDriver;
  *
  */
 public class AccountCenterNaviBarPage extends AutomateDriver {
+	
+	public static final String UserAccount = "x,/html/body/header/div/div[2]/div[2]/div[1]/span/b";
 
 	public AccountCenterNaviBarPage(WebDriver dr) {
 		super(dr);
@@ -28,8 +30,8 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
 	 * 
 	 */
 	public String getUserAccount(){
-		super.waitForElementToLoad(10, "/html/body/header/div/div[2]/div[2]/div[1]/span/b");
-		String HelloUser=super.getElement("x,/html/body/header/div/div[2]/div[2]/div[1]/span/b").getText();
+		super.waitForElementToLoad(10, UserAccount);
+		String HelloUser=super.getElement(UserAccount).getText().trim();
 		return HelloUser;
 	}
 	/**
@@ -38,7 +40,7 @@ public class AccountCenterNaviBarPage extends AutomateDriver {
 	 * /html/body/div[1]/header/div/div[2]/div/div[1]/span/b
 	 */
 	public String getTasteUserAccount(){
-		super.waitForElementToLoad(10, "/html/body/div[1]/header/div/div[2]/div/div[1]/span/b");
+		super.waitForElementToLoad(10,"/html/body/div[1]/header/div/div[2]/div/div[1]/span/b");
 		String TasteUser=super.getElement("x,/html/body/div[1]/header/div/div[2]/div/div[1]/span/b").getText();
 		return TasteUser;
 	}

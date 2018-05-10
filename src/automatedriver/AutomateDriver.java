@@ -239,13 +239,12 @@ public class AutomateDriver {
 		Set<String> handles = new HashSet<String>();
 		handles = dr.getWindowHandles();
 		for (String handle1 : handles) {
-			if (handle1 != handle) {
-
-				// Thread.sleep(1000);
-				dr.switchTo().window(handle1);
-			} else {
+			if (!handle1.equals(handle)) {
+				
 				dr.close();
-			}
+				Thread.sleep(2000);
+				dr.switchTo().window(handle1);
+			} 
 		}
 
 	}
@@ -382,6 +381,7 @@ public class AutomateDriver {
 			WebElement element = dr.findElement(By.xpath(frameValue));
 			System.out.println(element.getTagName());
 			dr.switchTo().frame(element);
+			
 		} else {
 
 			if (selector == "") {
@@ -510,9 +510,14 @@ public class AutomateDriver {
 
 	/**
 	 * ÍË³öä¯ÀÀÆ÷
+	 * @throws InterruptedException 
 	 */
 	public void quit_bor() {
-
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		dr.quit();
 	}
 
